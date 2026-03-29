@@ -229,9 +229,10 @@ st.altair_chart(month_chart, use_container_width=True)
 
 facts = [
     "Did You Know? Banditry and kidnapping are the leading causes of violence in the northwest.",
+
+]
+facts2 = [
     "Did You Know? Communal clashes in Benue and Plateau often last several days, making them among the longest incidents."
-    
-   
 ]
 
 #st.info(random.choice(facts))
@@ -239,6 +240,7 @@ facts = [
 
 st.markdown("### 💡 Did You Know?")
 st.info(random.choice(facts))
+st.info(random.choice(facts2))
 
 #st.success("""
    # Lagos State is divided into 20 Local Government Areas (LGAs) and 
