@@ -12,14 +12,10 @@ import time
 # Load dataset
 df = pd.read_csv("project_app/victor.csv")
 
-total_states = df["State"].nunique()
-total_deaths = df["Number of deaths"].sum()
+
 
 col1, col2, col3 = st.tabs(["Overview", "Analysis", "Insights"])
-with col1.popover("Show Total States"):
-    st.write(f"{total_states} States including FCT Abuja")
-with col1.popover("Show Total Deaths"):
-    st.write(f"{total_deaths} Deaths Across Nigeria")
+
 
 
 
@@ -60,10 +56,10 @@ with st.expander("Click to check Incident Table", expanded=False):
 
 
 # Example: calculate total deaths
-#total_deaths = df["Number of deaths"].sum()
+total_deaths = df["Number of deaths"].sum()
 
 # I counted unique states
-#total_states = df["State"].nunique()
+total_states = df["State"].nunique()
 
 # I calculated total number of deaths
 total_deaths = df["Number of deaths"].sum()
@@ -75,11 +71,11 @@ unique_incidents = df["Incident"].nunique()
 # I created three columns for side-by-side display
 col1, col2, col3 = st.columns(3)
 
-#with col1.popover("Show Total States"):
- #   st.write(f"{total_states} States including FCT Abuja")
+with col1.popover("Show Total States"):
+   st.write(f"{total_states} States including FCT Abuja")
 
-#with col2.popover("Show Total Deaths"):
- #   st.write(f"{total_deaths} Deaths Across Nigeria")
+with col2.popover("Show Total Deaths"):
+    st.write(f"{total_deaths} Deaths Across Nigeria")
 
 with col3.popover("Show Total Incidents"):
     st.write(f"{unique_incidents} Incidents")
