@@ -6,6 +6,7 @@ import seaborn as sns
 import datetime
 import altair as alt
 from PIL import Image
+import time 
 
 
 # Load dataset
