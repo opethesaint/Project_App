@@ -11,6 +11,7 @@ from PIL import Image
 # Load dataset
 df = pd.read_csv("project_app/victor.csv")
 
+tab1, tab2, tab3 = st.tabs(["Overview", "Analysis", "Insights"])
 
 
 
