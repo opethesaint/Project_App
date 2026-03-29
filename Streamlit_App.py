@@ -228,11 +228,10 @@ month_chart = alt.Chart(df).mark_bar().encode(
 st.altair_chart(month_chart, use_container_width=True)
 
 facts = [
-    "Did You Know? Banditry and kidnapping are the leading causes of violence in the northwest.",
-
+    "Banditry and kidnapping are the leading causes of violence in the northwest.",
 ]
 facts2 = [
-    "Did You Know? Communal clashes in Benue and Plateau often last several days, making them among the longest incidents."
+    "Communal clashes in Benue and Plateau often last several days, making them among the longest incidents."
 ]
 
 #st.info(random.choice(facts))
