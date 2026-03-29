@@ -207,6 +207,12 @@ month_chart = alt.Chart(df).mark_bar().encode(
 ).properties(title="Total Deaths by Month", width=900, height=450)
 st.altair_chart(month_chart, use_container_width=True)
 
+#Which incidents caused the highest number of deaths in each state?
+plt.figure(figsize=(12,6))
+sns.barplot(x="State", y="Number of deaths", hue="Incident", data=df, palette="Set2")
+plt.title("Deaths by Incident Across States")
+plt.xticks(rotation=45)
+plt.show()
 
 
 
