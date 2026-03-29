@@ -9,7 +9,7 @@ from PIL import Image
 
 
 # Load dataset
-df = pd.read_csv("victor.csv")
+df = pd.read_csv("project_app/victor.csv")
 
 
 
