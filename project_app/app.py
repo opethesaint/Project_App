@@ -7,7 +7,6 @@ import datetime
 import altair as alt
 from PIL import Image
 
-
 # Load dataset
 df = pd.read_csv("project_app/victor.csv")
 
