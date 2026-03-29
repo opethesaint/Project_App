@@ -14,10 +14,11 @@ df = pd.read_csv("project_app/victor.csv")
 
 total_states = df["State"].nunique()
 total_deaths = df["Number of deaths"].sum()
+
 tab1, tab2, tab3 = st.tabs(["Overview", "Analysis", "Insights"])
 with tab1.popover("Show Total States"):
     st.write(f"{total_states} States including FCT Abuja")
-    with tab2.popover("Show Total Deaths"):
+with tab2.popover("Show Total Deaths"):
     st.write(f"{total_deaths} Deaths Across Nigeria")
 
 
