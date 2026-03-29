@@ -14,11 +14,11 @@ df = pd.read_csv("project_app/victor.csv")
 
 
 
-col1, col2, col3 = st.tabs(["Overview", "Analysis", "Insights"])
+col1, col2 = st.tabs(["Overview", "Insights"])
 with col1:
   st.title("Incidents Analysis Dashboard")
 
-with col3:
+with col2:
     st.download_button("Download Data", df.to_csv().encode("utf-8"), "project_app/victor.csv")
 
 
