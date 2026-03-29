@@ -228,11 +228,10 @@ month_chart = alt.Chart(df).mark_bar().encode(
 st.altair_chart(month_chart, use_container_width=True)
 
 facts = [
-    "Did You Know? The longest incident lasted 12 days.",
-    "Did You Know? Lagos recorded the highest cumulative deaths.",
-    "Did You Know? The deadliest incident was 'Flood' with 40 deaths.",
-    "Did You Know? Some states appear multiple times, showing recurring risks.",
-    "Did You Know? Floods cluster in rainy months, revealing seasonal patterns."
+    "Did You Know? Banditry and kidnapping are the leading causes of violence in the northwest.",
+    "Did You Know? Communal clashes in Benue and Plateau often last several days, making them among the longest incidents."
+    
+   
 ]
 
 #st.info(random.choice(facts))
