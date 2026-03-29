@@ -207,12 +207,16 @@ month_chart = alt.Chart(df).mark_bar().encode(
 ).properties(title="Total Deaths by Month", width=900, height=450)
 st.altair_chart(month_chart, use_container_width=True)
 
-#Which incidents caused the highest number of deaths in each state?
-st.subheader("Question 8:: Which incidents caused the highest number of deaths in each state?")
-plt.figure(figsize=(12,6))
-sns.barplot(x="State", y="Number of deaths", hue="Incident", data=df, palette="Set2")
-plt.title("Deaths by Incident Across States")
-plt.xticks(rotation=45)
+#Q8 Which states consistently experience the highest number of deaths across incidents?
+st.subheader("Question 8:: Which states consistently experience the highest number of deaths across incidents?")
+heatmap_data = df.pivot_table(values="Number of deaths", 
+                              index="Incident", 
+                              columns="State", 
+                              aggfunc="sum")
+
+plt.figure(figsize=(12,8))
+sns.heatmap(heatmap_data, cmap="Reds", annot=True, fmt="d")
+plt.title("Heatmap of Deaths by Incident and State")
 st.pyplot(plt)
 
 
