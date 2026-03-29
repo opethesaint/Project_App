@@ -13,7 +13,7 @@ import time
 df = pd.read_csv("project_app/victor.csv")
 
 tab1, tab2, tab3 = st.tabs(["Overview", "Analysis", "Insights"])
-with col1.popover("Show Total States"):
+with tab1.popover("Show Total States"):
     st.write(f"{total_states} States including FCT Abuja")
     
 
