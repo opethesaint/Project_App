@@ -226,14 +226,25 @@ month_chart = alt.Chart(df).mark_bar().encode(
 ).properties(title="Total Deaths by Month", width=900, height=450)
 st.altair_chart(month_chart, use_container_width=True)
 
+facts = [
+    "Did You Know? The longest incident lasted 12 days.",
+    "Did You Know? Lagos recorded the highest cumulative deaths.",
+    "Did You Know? The deadliest incident was 'Flood' with 40 deaths.",
+    "Did You Know? Some states appear multiple times, showing recurring risks.",
+    "Did You Know? Floods cluster in rainy months, revealing seasonal patterns."
+]
+
+#st.info(random.choice(facts))
 
 
 st.markdown("### 💡 Did You Know?")
-st.success("""
-    Lagos State is divided into 20 Local Government Areas (LGAs) and 
-    57 Local Council Development Areas (LCDAs) for effective administration 
-    and development.
-    """)
+st.info(random.choice(facts))
+
+#st.success("""
+   # Lagos State is divided into 20 Local Government Areas (LGAs) and 
+    #57 Local Council Development Areas (LCDAs) for effective administration 
+   # and development.
+  #  """)
 
 
 # ... my app content ...
