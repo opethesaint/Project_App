@@ -13,6 +13,11 @@ df = pd.read_csv("project_app/victor.csv")
 
 tab1, tab2, tab3 = st.tabs(["Overview", "Analysis", "Insights"])
 
+st.progress(70)  
+with st.spinner("Loading analysis..."):
+    time.sleep(2)
+
+
 
 
 # I applied custom CSS styling to set a gradient background 
