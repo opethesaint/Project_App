@@ -12,6 +12,7 @@ import time
 # Load dataset
 df = pd.read_csv("project_app/victor.csv")
 
+total_states = df["State"].nunique()
 tab1, tab2, tab3 = st.tabs(["Overview", "Analysis", "Insights"])
 with tab1.popover("Show Total States"):
     st.write(f"{total_states} States including FCT Abuja")
