@@ -15,6 +15,9 @@ df = pd.read_csv("project_app/victor.csv")
 
 
 col1, col2, col3 = st.tabs(["Overview", "Analysis", "Insights"])
+with col1:
+  st.title("Incidents Analysis Dashboard")
+
 with col3:
     st.download_button("Download Data", df.to_csv().encode("utf-8"), "project_app/victor.csv")
 
@@ -49,7 +52,7 @@ st.markdown(
 # I selected relevant columns from the dataframe, 
 # and displayed an expandable incident table for quick review
 st.set_page_config(layout="wide")
-st.title("Incidents Analysis Dashboard")
+#st.title("Incidents Analysis Dashboard")
 columns = ["Identifier","Incident","State","Start date","End date","Number of deaths"]
 df = df[columns]
 with st.expander("Click to check Incident Table", expanded=False):
