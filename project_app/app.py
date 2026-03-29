@@ -7,11 +7,11 @@ import datetime
 import altair as alt
 from PIL import Image
 
+
+
+
 # Load dataset
 df = pd.read_csv("project_app/victor.csv")
-
-
-
 
 
 # I applied custom CSS styling to set a gradient background 
