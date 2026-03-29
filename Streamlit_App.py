@@ -70,7 +70,7 @@ with col3.popover("Show Total Incidents"):
 # I added a sidebar to display an image (images4.jpg)
 # with a fixed width of 200 pixels.
 st.sidebar.title("")
-img = Image.open("images4.jpg")
+img = Image.open("project_app/images4.jpg")
 img = img.resize((260, 120)) # width=200, height=300   
 st.sidebar.image(img)
 
