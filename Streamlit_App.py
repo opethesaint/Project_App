@@ -7,6 +7,7 @@ import datetime
 import altair as alt
 from PIL import Image
 import time 
+import random 
 
 
 # Load dataset
