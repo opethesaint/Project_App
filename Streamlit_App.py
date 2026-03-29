@@ -15,6 +15,8 @@ df = pd.read_csv("project_app/victor.csv")
 
 
 col1, col2, col3 = st.tabs(["Overview", "Analysis", "Insights"])
+with col3:
+    st.download_button("Download Data", df.to_csv().encode("utf-8"), "project_app/victor.csv")
 
 
 
