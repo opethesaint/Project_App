@@ -229,7 +229,7 @@ st.altair_chart(month_chart, use_container_width=True)
 
 
 st.markdown("### 💡 Did You Know?")
-  st.success("""
+st.success("""
     Lagos State is divided into 20 Local Government Areas (LGAs) and 
     57 Local Council Development Areas (LCDAs) for effective administration 
     and development.
