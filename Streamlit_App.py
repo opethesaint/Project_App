@@ -179,7 +179,7 @@ for p in ax.patches:
     ax.annotate(f'{p.get_height()}', (p.get_x()+p.get_width()/2., p.get_height()),
                 ha='center', va='bottom', fontsize=10, color='black', xytext=(0,5),
                 textcoords='offset points')
-ax.set_title('Number of Incidents by Month', fontsize=20, fontweight='bold', color='darkblue')
+ax.set_title('Number of Incidents by Month', fontsize=20, fontweight='bold')
 ax.set_xlabel("Month", fontsize=14); ax.set_ylabel("Number of Incidents", fontsize=14)
 ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right'); sns.despine()
 st.pyplot(fig)
