@@ -164,7 +164,7 @@ fig = sns.catplot(data=df_top, x='State', y='Number of deaths', kind='violin',
 sns.stripplot(data=df_top, x='State', y='Number of deaths', color='white',
               size=3, alpha=0.6, ax=fig.ax)
 fig.set_xticklabels(rotation=45, ha="right")
-fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02)
+fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02,fontweight='bold')
 st.pyplot(fig.fig)
 
 
