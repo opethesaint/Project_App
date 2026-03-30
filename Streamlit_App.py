@@ -164,7 +164,7 @@ fig = sns.catplot(data=df_top, x='State', y='Number of deaths', kind='violin',
 sns.stripplot(data=df_top, x='State', y='Number of deaths', color='white',
               size=3, alpha=0.6, ax=fig.ax)
 fig.set_xticklabels(rotation=45, ha="right")
-fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02,fontweight='bold')
+fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02)
 st.pyplot(fig.fig)
 
 
@@ -179,7 +179,7 @@ for p in ax.patches:
     ax.annotate(f'{p.get_height()}', (p.get_x()+p.get_width()/2., p.get_height()),
                 ha='center', va='bottom', fontsize=10, color='black', xytext=(0,5),
                 textcoords='offset points')
-ax.set_title('Number of Incidents by Month', fontsize=20, fontweight='bold')
+ax.set_title('Number of Incidents by Month', fontsize=20 #fontweight='bold')
 ax.set_xlabel("Month", fontsize=14); ax.set_ylabel("Number of Incidents", fontsize=14)
 ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right'); sns.despine()
 st.pyplot(fig)
