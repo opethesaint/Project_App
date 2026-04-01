@@ -101,8 +101,8 @@ states = st.sidebar.multiselect(
 )
 
 
-# i used a Sidebar date inputs for selecting start and end dates, 
-# then i converted them to pandas datetime objects for filtering and analysis
+# I used a Sidebar date inputs for selecting start and end dates, 
+# then I converted them to pandas datetime objects for filtering and analysis
 start_date = st.sidebar.date_input("Start date")
 end_date = st.sidebar.date_input("End date")
 
@@ -111,7 +111,7 @@ start_date = pd.to_datetime(start_date)
 end_date   = pd.to_datetime(end_date)
 
 
-# I used a Sidebar selectbox for choosing a specific incident 
+# I used a sidebar select box for choosing a specific incident 
 # with a default "Choose option" placeholder at the top
 incident_options = ["Choose option"] + df['Incident'].unique().tolist()
 incident_option = st.sidebar.selectbox("Choose an Incident", options=incident_options)
@@ -158,7 +158,7 @@ ax6.pie(
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
 
 # Add summary text at the bottom of the chart
-summary_text = f"The top two categories — Auto Crashes and Banditry — together account for over half (50.5%) of all 
+summary_text = "The top two categories — Auto Crashes and Banditry — together account for over half (50.5%) of all 
 incidents, showing they dominate the landscape compared to other causes."
 fig6.text(
     0.5, -0.05, summary_text,  # x=0.5 centers horizontally, y=-0.05 places below chart
