@@ -161,8 +161,6 @@ ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
 summary_text = ("The top two categories — Auto Crashes and Banditry —\n"
                 "together account for over half (50.5%) of all incidents, showing they dominate the landscape compared to other causes.")
 
-)
-
 fig6.text(
     0.5, -0.05, summary_text,  # x=0.5 centers horizontally, y=-0.05 places below chart
     ha='center', va='center',
