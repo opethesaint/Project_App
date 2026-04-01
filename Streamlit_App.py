@@ -156,13 +156,13 @@ ax6.pie(
     radius=0.9   # shrink radius a bit
 )
 
-# Add title closer to the chart
+# Add title closer to chart
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=24, pad=10)
 
-# Adjust bottom margin so the chart sits closer to the summary
-fig6.subplots_adjust(bottom=0.15)
+# Adjust bottom margin so chart sits closer to summary
+fig6.subplots_adjust(bottom=0.1)
 
-# Add summary text below x-axis label
+# Add summary text closer to the chart
 summary_text = (
     "The top two categories — Auto Crashes and Banditry — "
     "together account for over half (50.5%) of all incidents, "
@@ -170,12 +170,13 @@ summary_text = (
 )
 
 fig6.text(
-    0.5, -0.08, summary_text,
+    0.5, -0.01, summary_text,   # moved closer (was -0.05)
     ha='center', va='top', fontsize=14, color='darkblue',
     bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5)
 )
 
 st.pyplot(fig6)
+
 
 
 
