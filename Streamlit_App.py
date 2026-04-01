@@ -181,67 +181,51 @@ fig6.text(
 st.pyplot(fig6)
 
 
+
 #Q2 How does the number of deaths vary across different States, using top 10 states?
 st.subheader("Question 2:: How does the number of deaths vary across different States, using top 10 states?")
+
 top_states = df.groupby("State")["Number of deaths"].sum().nlargest(10).index
 df_top = df[df["State"].isin(top_states)]
 
-fig = sns.catplot(
-    data=df_top, 
-    x='State', 
-    y='Number of deaths', 
-    kind='violin',
-    inner='quartile', 
-    height=6, 
-    aspect=1.5, 
-    palette="viridis"
-)
+fig = sns.catplot(data=df_top, x='State', y='Number of deaths', kind='violin',
+                  inner='quartile', height=6, aspect=1.5, palette="viridis")
 
-# Add stripplot on the same axes
-sns.stripplot(
-    data=df_top, 
-    x='State', 
-    y='Number of deaths', 
-    color='white',
-    size=3, 
-    alpha=0.6, 
-    ax=fig.ax
-)
+sns.stripplot(data=df_top, x='State', y='Number of deaths', color='white',
+              size=3, alpha=0.6, ax=fig.ax)
 
-# Rotate x labels
 fig.set_xticklabels(rotation=45, ha="right")
+fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02)
 
-# Main title
-fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", 
-                 fontsize=16, y=1.02)
-
-# Summary text (with nice styling like your pie chart)
-summary_text = (
-    "The states with the highest variability (Benue, Kaduna, Borno) experience unpredictable swings in death numbers,\n"
-    "while Ogun and Lagos show more stable, consistent patterns."
-)
-
-# Adjust bottom margin to make space but keep summary close
-fig.fig.subplots_adjust(bottom=0.18)
-
-# Add styled summary text - closer to the chart (just like you wanted)
-fig.fig.text(
-    0.5, 0.0001,                    # Changed from -0.1 → 0.02  (much closer)
-    summary_text,
-    ha='center', 
-    va='bottom',                  # Better alignment
-    fontsize=14,                  # Slightly larger than original 12
-    weight='bold', 
-    color='darkblue',
-    bbox=dict(
-        boxstyle="round,pad=0.6", 
-        facecolor="lightyellow", 
-        alpha=0.65
-    )
-)
-
-# Display in Streamlit
 st.pyplot(fig.fig)
+
+# ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
+summary_text = (
+    "The states with the highest variability (Benue, Kaduna, Borno) experience "
+    "unpredictable swings in death numbers, while Ogun and Lagos show more "
+    "stable, consistent patterns."
+)
+
+st.markdown(f"""
+<div style="text-align: center; margin-top: 15px; margin-bottom: 20px;">
+    <div style="
+        display: inline-block;
+        padding: 18px 30px;
+        background-color: #fff9e6;
+        border-radius: 12px;
+        border: 1px solid #f0d68a;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #003366;
+        font-weight: bold;
+        max-width: 88%;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    ">
+        {summary_text}
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 
 
 
