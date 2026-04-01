@@ -187,32 +187,60 @@ top_states = df.groupby("State")["Number of deaths"].sum().nlargest(10).index
 df_top = df[df["State"].isin(top_states)]
 
 fig = sns.catplot(
-    data=df_top, x='State', y='Number of deaths', kind='violin',
-    inner='quartile', height=6, aspect=1.5, palette="viridis"
+    data=df_top, 
+    x='State', 
+    y='Number of deaths', 
+    kind='violin',
+    inner='quartile', 
+    height=6, 
+    aspect=1.5, 
+    palette="viridis"
 )
-sns.stripplot(
-    data=df_top, x='State', y='Number of deaths', color='white',
-    size=3, alpha=0.6, ax=fig.ax
-)
-fig.set_xticklabels(rotation=45, ha="right")
-fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=12, y=1.02)
 
+# Add stripplot on the same axes
+sns.stripplot(
+    data=df_top, 
+    x='State', 
+    y='Number of deaths', 
+    color='white',
+    size=3, 
+    alpha=0.6, 
+    ax=fig.ax
+)
+
+# Rotate x labels
+fig.set_xticklabels(rotation=45, ha="right")
+
+# Main title
+fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", 
+                 fontsize=16, y=1.02)
+
+# Summary text (with nice styling like your pie chart)
 summary_text = (
     "The states with the highest variability (Benue, Kaduna, Borno) experience unpredictable swings in death numbers,\n"
     "while Ogun and Lagos show more stable, consistent patterns."
 )
 
+# Adjust bottom margin to make space but keep summary close
+fig.fig.subplots_adjust(bottom=0.18)
 
-fig.fig.subplots_adjust(bottom=0.1)
-
-# Add summary text below the chart
+# Add styled summary text - closer to the chart (just like you wanted)
 fig.fig.text(
-    0.5, -0.1, summary_text,
-    ha='center', va='center',
-    fontsize=12, weight='bold'
+    0.5, 0.02,                    # Changed from -0.1 → 0.02  (much closer)
+    summary_text,
+    ha='center', 
+    va='bottom',                  # Better alignment
+    fontsize=14,                  # Slightly larger than original 12
+    weight='bold', 
+    color='darkblue',
+    bbox=dict(
+        boxstyle="round,pad=0.6", 
+        facecolor="lightyellow", 
+        alpha=0.65
+    )
 )
 
-# Display the figure in Streamlit
+# Display in Streamlit
 st.pyplot(fig.fig)
 
 
