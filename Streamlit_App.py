@@ -226,7 +226,7 @@ fig.fig.subplots_adjust(bottom=0.18)
 
 # Add styled summary text - closer to the chart (just like you wanted)
 fig.fig.text(
-    0.5, 0.0005,                    # Changed from -0.1 → 0.02  (much closer)
+    0.5, 0.0001,                    # Changed from -0.1 → 0.02  (much closer)
     summary_text,
     ha='center', 
     va='bottom',                  # Better alignment
