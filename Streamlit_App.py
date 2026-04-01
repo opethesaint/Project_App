@@ -145,7 +145,7 @@ st.subheader("Question 1:: Which Incident are associated with the highest number
 
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
 
-# Create bigger pie chart with bold labels
+# Create a bigger pie chart with bold labels
 fig6, ax6 = plt.subplots(figsize=(28, 18))
 
 ax6.pie(
