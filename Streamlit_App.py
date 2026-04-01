@@ -157,22 +157,23 @@ ax6.pie(
 # Add title
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=24)
 
-# Adjust bottom margin to make space for summary
-fig6.subplots_adjust(bottom=0.2)
+# Adjust bottom margin to make space but not too much
+fig6.subplots_adjust(bottom=0.15)
 
-# Add summary text at the bottom of the chart
+# Add summary text closer to the pie
 summary_text = (
     "The top two categories — Auto Crashes and Banditry —\n"
     "together account for over half (50.5%) of all incidents, showing they dominate the landscape compared to other causes."
 )
 
 fig6.text(
-    0.5, -0.05, summary_text,
+    0.5, -0.02, summary_text,  # move up from -0.05 to -0.02
     ha='center', va='center',
-    fontsize=24, weight='bold'
+    fontsize=20, weight='bold'
 )
 
 st.pyplot(fig6)
+
 
 
 #Q2 How does the number of deaths vary across different States, using top 10 states?
