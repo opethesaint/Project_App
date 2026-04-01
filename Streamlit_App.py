@@ -145,18 +145,20 @@ filtered_df = df[mask]
 st.subheader("Question 1:: Which Incident are associated with the highest number of deaths?")
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
 
-fig6, ax6 = plt.subplots(figsize=(24, 16))
+# Increase figure size for a bigger pie chart
+fig6, ax6 = plt.subplots(figsize=(24, 16))  
+
 ax6.pie(
     top_titles,
     labels=top_titles.index,
     autopct='%1.1f%%',
     startangle=90,
-    textprops={'fontsize': 14}
+    textprops={'fontsize': 16}   # slightly larger labels
 )
-ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
+ax6.set_title("Deaths by Incident (Top 10)", fontsize=22)
 
 # Adjust bottom margin so chart leaves space for summary
-fig6.subplots_adjust(bottom=0.25)
+fig6.subplots_adjust(bottom=0.20)
 
 # Add summary text (two lines)
 summary_text = (
@@ -165,11 +167,11 @@ summary_text = (
     "showing they dominate the landscape compared to other causes."
 )
 
-# Add bold summary annotation closer to chart
+# Bold summary annotation closer to chart
 fig6.text(
-    0.5, -0.05, summary_text,   # position below chart
+    0.5, -0.01, summary_text,   # moved closer (was -0.05)
     ha='center', va='center',
-    fontsize=16, weight='bold', color='darkblue',
+    fontsize=18, weight='bold', color='darkblue',
     bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5)
 )
 
