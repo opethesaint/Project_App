@@ -248,37 +248,55 @@ st.pyplot(fig.fig)
 #3 What is the monthly distribution of incidents?
 st.subheader("Question 3:: What is the monthly distribution of incidents?")
 df['Month'] = df['Start date'].dt.month_name()
+
 fig, ax = plt.subplots(figsize=(14, 8))
 
 sns.countplot(
-    data=df, x='Month', palette='tab20',
+    data=df, 
+    x='Month', 
+    palette='tab20',
     order=['January','February','March','April','May','June','July',
-           'August','September','October','November','December'], ax=ax
+           'August','September','October','November','December'], 
+    ax=ax
 )
 
 # Annotate bar counts
 for p in ax.patches:
-    ax.annotate(f'{p.get_height()}',
-                (p.get_x()+p.get_width()/2., p.get_height()),
-                ha='center', va='bottom', fontsize=10, color='black',
-                xytext=(0,5), textcoords='offset points')
+    ax.annotate(f'{p.get_height():,.0f}',
+                (p.get_x() + p.get_width()/2., p.get_height()),
+                ha='center', va='bottom', 
+                fontsize=11, color='black',
+                xytext=(0, 6), textcoords='offset points')
 
 # Titles and labels
-ax.set_title('Number of Incidents by Month', fontsize=20)
+ax.set_title('Number of Incidents by Month', fontsize=20, pad=20)
 ax.set_xlabel("Month", fontsize=14)
 ax.set_ylabel("Number of Incidents", fontsize=14)
 ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+
 sns.despine()
 
-# Add summary text below x-axis label
-summary_text = ("Incident counts fluctuate throughout the year, with noticeable peaks "
-                "in January, July, and October, and dips in May, April, and November.\n"
-                "Overall, the average is about 624 incidents per month, showing seasonal "
-                "variation—higher in winter and summer, lower in spring.")
+# ====================== SUMMARY TEXT (Styled like your pie chart) ======================
+summary_text = (
+    "Incident counts fluctuate throughout the year, with noticeable peaks in "
+    "January, July, and October, and dips in May, April, and November.\n"
+    "Overall, the average is about 624 incidents per month, showing seasonal "
+    "variation — higher in winter and summer, lower in spring."
+)
 
-fig.text(0.5, -0.05, summary_text,
-         ha='center', va='top', fontsize=12, color='darkblue',
-         bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5))
+# Make it look consistent with your previous summary
+fig.subplots_adjust(bottom=0.28)   # Gives enough space below the chart
+
+fig.text(
+    0.5, -0.12,                    # Adjusted position (more negative = lower)
+    summary_text,
+    ha='center', 
+    va='center',
+    fontsize=14,                   # Slightly larger than before for better visibility
+    weight='bold',
+    color='darkblue',
+    bbox=dict(boxstyle="round,pad=0.6", facecolor="lightyellow", alpha=0.6)
+)
 
 st.pyplot(fig)
 
