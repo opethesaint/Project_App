@@ -141,10 +141,7 @@ filtered_df = df[mask]
 
 
 
-
-
-
-#Q1 Which Incident are associated with the highest number of deaths?
+#Q1 Which incidents are associated with the highest number of deaths?
 st.subheader("Question 1:: Which Incident are associated with the highest number of deaths?")
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
 
@@ -160,15 +157,16 @@ ax6.pie(
 # Add title
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
 
-# Add summary text inside the chart
-summary_text = f"Total deaths: {top_titles.sum()}\nTop incident: {top_titles.index[0]}"
-ax6.text(
-    0, 0, summary_text,
+# Add summary text at the bottom of the chart
+summary_text = f"Total deaths: {top_titles.sum()} | Top incident: {top_titles.index[0]}"
+fig6.text(
+    0.5, -0.05, summary_text,  # x=0.5 centers horizontally, y=-0.05 places below chart
     ha='center', va='center',
     fontsize=16, weight='bold'
 )
 
 st.pyplot(fig6)
+
 
 
 
