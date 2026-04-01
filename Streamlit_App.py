@@ -193,11 +193,11 @@ summary_text = (
 )
 
 
+fig.fig.subplots_adjust(bottom=0.2)
 
-
-# Add summary text below chart
+# Add summary text below the chart
 fig.fig.text(
-    0.5, -0.05, summary_text,
+    0.5, -0.1, summary_text,
     ha='center', va='center',
     fontsize=12, weight='bold'
 )
