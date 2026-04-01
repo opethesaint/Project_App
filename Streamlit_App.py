@@ -169,12 +169,9 @@ summary_text = (
     "showing they dominate the landscape compared to other causes."
 )
 
-fig6.text(
-    0.01, -0.05, summary_text,   # start near left edge
-    ha='left', va='top',
-    fontsize=16, color='darkblue',
-    wrap=True,   # allow text to wrap across the figure
-    bbox=dict(boxstyle="round,pad=1.0", facecolor="lightyellow", alpha=0.5)
+fig6.text(0.5, -0.05, summary_text,
+         ha='center', va='top', fontsize=12, color='darkblue',
+         bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5))
 )
 
 
