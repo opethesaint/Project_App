@@ -158,7 +158,6 @@ ax6.pie(
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=24)  # Larger title
 
 
-
 # Add summary text at the bottom of the chart
 summary_text = ("The top two categories — Auto Crashes and Banditry —\n"
                 "together account for over half (50.5%) of all incidents, showing they dominate the landscape compared to other causes.")
@@ -185,7 +184,19 @@ sns.stripplot(data=df_top, x='State', y='Number of deaths', color='white',
               size=3, alpha=0.6, ax=fig.ax)
 fig.set_xticklabels(rotation=45, ha="right")
 fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02)
+
+summary_text = (
+    "The states with the highest variability (Benue, Kaduna, Borno) experience unpredictable swings in death numbers, "
+    "while Ogun and Lagos show more stable, consistent patterns."
+)
+
+fig6.text(
+    0.5, -0.05, summary_text,  # x=0.5 centers horizontally, y=-0.05 places below chart
+    ha='center', va='center',
+    fontsize=24, weight='bold'
+)
 st.pyplot(fig.fig)
+
 
 
 #3 What is the monthly distribution of incidents?
