@@ -170,10 +170,10 @@ summary_text = (
 )
 
 fig6.text(
-    0.5, -0.05, summary_text,
-    ha='center', va='top',
+    0.01, -0.05, summary_text,   # start near left edge
+    ha='left', va='top',
     fontsize=16, color='darkblue',
-    wrap=True,   # allow text to wrap across the figure width
+    wrap=True,   # allow text to wrap across the figure
     bbox=dict(boxstyle="round,pad=1.0", facecolor="lightyellow", alpha=0.5)
 )
 
