@@ -188,9 +188,10 @@ fig.set_xticklabels(rotation=45, ha="right")
 fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02)
 
 summary_text = (
-    "The states with the highest variability (Benue, Kaduna, Borno)\nexperience unpredictable swings in death numbers,\n"
+    "The states with the highest variability (Benue, Kaduna, Borno) experience unpredictable swings in death numbers,\n"
     "while Ogun and Lagos show more stable, consistent patterns."
 )
+
 
 
 
