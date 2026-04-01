@@ -157,7 +157,8 @@ ax6.pie(
 )
 
 # Add title
-ax6.set_title("Deaths by Incident (Top 10)", fontsize=24)
+ax6.set_title("Deaths by Incident (Top 10)", fontsize=24, pad=10)
+
 
 st.pyplot(fig6)
 
