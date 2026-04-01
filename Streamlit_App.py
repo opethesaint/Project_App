@@ -248,7 +248,7 @@ summary_text = ("Incident counts fluctuate throughout the year, with noticeable 
 
 ax.text(0.95, 0.95, summary_text,
         transform=ax.transAxes, fontsize=12, color='darkblue',
-        ha='right', va='top', bbox=dict(boxstyle="round,pad=0.5", 
+        ha='right', va='bottom', bbox=dict(boxstyle="round,pad=0.5", 
                                         facecolor="lightyellow", alpha=0.5))
 
 st.pyplot(fig)
