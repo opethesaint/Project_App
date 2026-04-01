@@ -166,7 +166,7 @@ fig6.text(
     bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5)
 )
 
-st.pyplot(fig6)
+
 
 
 
