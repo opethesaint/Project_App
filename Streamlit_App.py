@@ -146,13 +146,13 @@ st.subheader("Question 1:: Which Incident are associated with the highest number
 
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
 
-fig6, ax6 = plt.subplots(figsize=(26, 16))
+fig6, ax6 = plt.subplots(figsize=(28, 18))
 ax6.pie(top_titles, 
         labels=top_titles.index, 
         autopct='%1.1f%%',
         startangle=90, 
         textprops={'fontsize': 14})
-ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
+ax6.set_title("Deaths by Incident (Top 10)", fontsize=20)
 
 # Optional: Improve pie chart appearance
 ax6.axis('equal')  # Ensures the pie is drawn as a circle
