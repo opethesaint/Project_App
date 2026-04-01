@@ -161,13 +161,13 @@ st.pyplot(fig6)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
 summary_text = ( 
-    "<strong>INSIGHT:</strong>  The top two categories — Auto Crashes and Banditry — together account for "
+    "<strong>INSIGHT:  </strong>  The top two categories — Auto Crashes and Banditry — together account for "
     "over half (50.5%) of all incidents, showing they dominate the landscape "
     "compared to other causes."
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 1.5px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 1px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 18px 30px;
