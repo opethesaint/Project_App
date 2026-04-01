@@ -172,7 +172,7 @@ summary_text = (
 fig6.text(0.5, -0.05, summary_text,
          ha='center', va='top', fontsize=12, color='darkblue',
          bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5))
-)
+
 
 
 st.pyplot(fig6)
