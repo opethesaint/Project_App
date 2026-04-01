@@ -160,8 +160,8 @@ ax6.axis('equal')  # Ensures the pie is drawn as a circle
 st.pyplot(fig6)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
-summary_text = (
-    "The top two categories — Auto Crashes and Banditry — together account for "
+summary_text = ( 
+    "<strong>INSIGHT:</strong>  The top two categories — Auto Crashes and Banditry — together account for "
     "over half (50.5%) of all incidents, showing they dominate the landscape "
     "compared to other causes."
 )
