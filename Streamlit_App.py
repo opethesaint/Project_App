@@ -171,17 +171,19 @@ fig6.text(
 st.pyplot(fig6)
 
 
-
-
-
 #Q2 How does the number of deaths vary across different States, using top 10 states?
-st.subheader("Question 2:: How does the number of deaths vary across different States,using top 10 states?")
+st.subheader("Question 2:: How does the number of deaths vary across different States, using top 10 states?")
 top_states = df.groupby("State")["Number of deaths"].sum().nlargest(10).index
 df_top = df[df["State"].isin(top_states)]
-fig = sns.catplot(data=df_top, x='State', y='Number of deaths', kind='violin',
-                  inner='quartile', height=6, aspect=1.5, palette="viridis")
-sns.stripplot(data=df_top, x='State', y='Number of deaths', color='white',
-              size=3, alpha=0.6, ax=fig.ax)
+
+fig = sns.catplot(
+    data=df_top, x='State', y='Number of deaths', kind='violin',
+    inner='quartile', height=6, aspect=1.5, palette="viridis"
+)
+sns.stripplot(
+    data=df_top, x='State', y='Number of deaths', color='white',
+    size=3, alpha=0.6, ax=fig.ax
+)
 fig.set_xticklabels(rotation=45, ha="right")
 fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02)
 
@@ -190,12 +192,16 @@ summary_text = (
     "while Ogun and Lagos show more stable, consistent patterns."
 )
 
-fig6.text(
-    0.5, -0.05, summary_text,  # x=0.5 centers horizontally, y=-0.05 places below chart
+# Add summary text below chart
+fig.fig.text(
+    0.5, -0.05, summary_text,
     ha='center', va='center',
-    fontsize=24, weight='bold'
+    fontsize=14, weight='bold'
 )
+
 st.pyplot(fig.fig)
+
+st.pyplot(fig.fig2)
 
 
 
