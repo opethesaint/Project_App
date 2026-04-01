@@ -164,7 +164,7 @@ summary_text = ("The top two categories — Auto Crashes and Banditry —\n"
 fig6.text(
     0.5, -0.05, summary_text,  # x=0.5 centers horizontally, y=-0.05 places below chart
     ha='center', va='center',
-    fontsize=18, weight='bold'
+    fontsize=22, weight='bold'
 )
 
 st.pyplot(fig6)
