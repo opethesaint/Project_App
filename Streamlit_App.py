@@ -305,13 +305,38 @@ st.pyplot(fig)
 
 #Q4 How does the number of deaths vary across different states?
 st.subheader("Question 4:: How does the number of deaths vary across different states?")
+
 chart = alt.Chart(df).mark_boxplot(size=50).encode(
     x=alt.X('State:N', sort='-y'),
     y='Number of deaths:Q',
     color=alt.Color('State:N', legend=None)
 ).properties(width=700, height=500, title='Deaths by State (Boxplot)')
+
 st.altair_chart(chart, use_container_width=True)
 
+# Consistent summary using matplotlib-style text box
+summary_text = (
+    "Borno and Zamfara stand out with both higher median deaths and wider variability, "
+    "While Abuja, Imo, and Lagos show relatively stable and lower death counts."
+)
+
+# Create a dummy figure just for the text box
+dummy_fig, dummy_ax = plt.subplots(figsize=(10, 1))
+dummy_fig.subplots_adjust(bottom=0.1)
+
+dummy_fig.text(
+    0.5, 0.5,
+    summary_text,
+    ha='center', 
+    va='center',
+    fontsize=14,
+    weight='bold',
+    color='darkblue',
+    bbox=dict(boxstyle="round,pad=0.8", facecolor="lightyellow", alpha=0.65)
+)
+
+plt.axis('off')
+st.pyplot(dummy_fig, use_container_width=True)
 
 #Q5 Has the frequency or severity of fatal incidents increased or decreased year-over-year?
 st.subheader("Question 5:: Has the frequency or severity of fatal incidents increased or decreased year-over-year?")
