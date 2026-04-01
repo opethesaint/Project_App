@@ -158,10 +158,9 @@ ax6.pie(
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
 
 # Add summary text at the bottom of the chart
-summary_text = (
-    "The top two categories — Auto Crashes and Banditry —\n"
-    "together account for over half (50.5%) of all incidents,\n"
-    "showing they dominate the landscape compared to other causes."
+summary_text = ("The top two categories — Auto Crashes and Banditry —\n"
+                "together account for over half (50.5%) of all incidents, showing they dominate the landscape compared to other causes.")
+
 )
 
 fig6.text(
