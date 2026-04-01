@@ -159,23 +159,8 @@ ax6.pie(
 # Add title
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=24)
 
-# Adjust bottom margin so chart sits closer to summary
-fig6.subplots_adjust(bottom=0.00001)
-
-# Add summary text just below the pie
-summary_text = (
-    "The top two categories — Auto Crashes and Banditry —\n"
-    "together account for over half (50.5%) of all incidents, "
-    "showing they dominate the landscape compared to other causes."
-)
-
-fig6.text(0.5, -0.05, summary_text,
-         ha='center', va='top', fontsize=12, color='darkblue',
-         bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5))
-
-
-
 st.pyplot(fig6)
+
 
 
 
