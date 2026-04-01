@@ -151,8 +151,8 @@ ax6.pie(top_titles,
         labels=top_titles.index, 
         autopct='%1.1f%%',
         startangle=90, 
-        textprops={'fontsize': 14})
-ax6.set_title("Deaths by Incident (Top 10)", fontsize=20)
+        textprops={'fontsize': 16})
+ax6.set_title("Deaths by Incident (Top 10)", fontsize=22)
 
 # Optional: Improve pie chart appearance
 ax6.axis('equal')  # Ensures the pie is drawn as a circle
@@ -161,13 +161,13 @@ st.pyplot(fig6)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
 summary_text = ( 
-    "<strong>INSIGHT:  </strong>  The top two categories — Auto Crashes and Banditry — together account for "
+    "<strong>INSIGHT:  </strong> -- The top two categories — Auto Crashes and Banditry — together account for "
     "over half (50.5%) of all incidents, showing they dominate the landscape "
     "compared to other causes."
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 0.5px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 0.3px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 18px 30px;
