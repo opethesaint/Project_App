@@ -477,6 +477,8 @@ st.markdown("### 💡 Did You Know?")
 
 st.success("""
 - Over 7.3 million Nigerians require humanitarian assistance in 2026.
+- In the northeast (Borno, Adamawa, Yobe), 5.9 million people face severe to extreme needs due to conflict, displacement, and food insecurity.
+- Non-state armed groups (NSAGs) have intensified attacks on both military and civilians.
 """)
 
 
