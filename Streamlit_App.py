@@ -140,52 +140,56 @@ mask &= df["End date"] <= pd.to_datetime(end_date)
 filtered_df = df[mask]
 
 
-
 #Q1 Which Incident are associated with the highest number of deaths?
 st.subheader("Question 1:: Which Incident are associated with the highest number of deaths?")
 
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
 
-ax6.pie(top_titles,
-        labels=top_titles.index,
-        autopct='%1.1f%%',
-        startangle=90,
-        textprops={'fontsize': 18, 'fontweight': 'bold'},   # Bigger + Bold labels
-        wedgeprops={'linewidth': 1.5, 'edgecolor': 'white'})  # Cleaner look
+# Create bigger pie chart with bold labels
+fig6, ax6 = plt.subplots(figsize=(28, 18))
 
-ax6.set_title("Deaths by Incident (Top 10)", fontsize=24, fontweight='bold', pad=30)
+ax6.pie(
+    top_titles,
+    labels=top_titles.index,
+    autopct='%1.1f%%',
+    startangle=90,
+    textprops={'fontsize': 18, 'fontweight': 'bold'},   # Bigger and bold labels
+    wedgeprops={'linewidth': 2, 'edgecolor': 'white'}    # Cleaner slice separation
+)
 
-# Optional: Improve pie chart appearance
-ax6.axis('equal')  # Ensures the pie is drawn as a circle
+ax6.set_title("Deaths by Incident (Top 10)", fontsize=24, fontweight='bold', pad=40)
+ax6.axis('equal')  # Makes sure the pie is perfectly circular
 
 st.pyplot(fig6)
 
-# ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
-summary_text = ( 
-    "<strong>INSIGHT:  </strong> -- The top two categories — Auto Crashes and Banditry — together account for "
-    "over half (50.5%) of all incidents, showing they dominate the landscape "
-    "compared to other causes."
+# ====================== SUMMARY TEXT (HTML Design) ======================
+summary_text = (
+    "<strong>INSIGHT::</strong> --  The top two categories — Auto Crashes and Banditry — "
+    "Together, they account for over half (50.5%) of all incidents, showing they dominate."
+    "The landscape compared to other causes."
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 0.3px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 0.5px; margin-bottom: 25px;">
     <div style="
         display: inline-block;
-        padding: 18px 30px;
+        padding: 20px 35px;
         background-color: #fff9e6;
         border-radius: 12px;
         border: 1px solid #f0d68a;
-        font-size: 15px;
-        line-height: 1.55;
+        font-size: 16px;
+        line-height: 1.6;
         color: #003366;
         font-weight: bold;
-        max-width: 88%;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        max-width: 90%;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     ">
         {summary_text}
     </div>
 </div>
 """, unsafe_allow_html=True)
+
+
 
 
 
