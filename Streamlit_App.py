@@ -338,14 +338,36 @@ dummy_fig.text(
 plt.axis('off')
 st.pyplot(dummy_fig, use_container_width=True)
 
+
+
 #Q5 Has the frequency or severity of fatal incidents increased or decreased year-over-year?
 st.subheader("Question 5:: Has the frequency or severity of fatal incidents increased or decreased year-over-year?")
-line_chart = alt.Chart(df).mark_line(point=True).encode(
-    x='year(Start date):O',
-    y='sum(Number of deaths):Q',
-    tooltip=['year(Start date)', 'sum(Number of deaths)']
-).properties(width=700)
-st.altair_chart(line_chart, use_container_width=True)
+summary_text = (
+    "From 1970 to 2022, there’s a sharp rise, reaching about 8,000 deaths. "
+    "The numbers continue climbing in 2023 and 2024, peaking at around 12,000 deaths.\n"
+    "In 2025, the trend reverses dramatically, showing a steep decline."
+)
+
+# Create a small matplotlib figure for consistent text box styling
+fig_text, ax_text = plt.subplots(figsize=(12, 2.2))
+fig_text.subplots_adjust(bottom=0.4)
+
+fig_text.text(
+    0.5, 0.55,
+    summary_text,
+    ha='center', 
+    va='center',
+    fontsize=14,
+    weight='bold',
+    color='darkblue',
+    bbox=dict(boxstyle="round,pad=0.8", facecolor="lightyellow", alpha=0.65)
+)
+
+ax_text.axis('off')
+st.pyplot(fig_text, use_container_width=True)
+
+
+
 
 #Q6 Top 8 states have the highest cumulative death toll?
 st.subheader("Question 6:: Which states have the highest cumulative death toll?")
