@@ -473,11 +473,12 @@ st.markdown(f"""
 
 #st.info(random.choice(facts))
 
-
 st.markdown("### 💡 Did You Know?")
- st.success("""
-    - Over 7.3 million Nigerians require humanitarian assistance in 2026.
-    """)
+
+st.success("""
+- Over 7.3 million Nigerians require humanitarian assistance in 2026.
+""")
+
 
 
 
