@@ -240,18 +240,18 @@ ax.set_ylabel("Number of Incidents", fontsize=14)
 ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
 sns.despine()
 
-# Add summary text inside chart
+# Add summary text below x-axis label
 summary_text = ("Incident counts fluctuate throughout the year, with noticeable peaks "
                 "in January, July, and October, and dips in May, April, and November.\n"
                 "Overall, the average is about 624 incidents per month, showing seasonal "
                 "variation—higher in winter and summer, lower in spring.")
 
-ax.text(0.95, 0.95, summary_text,
-        transform=ax.transAxes, fontsize=12, color='darkblue',
-        ha='right', va='bottom', bbox=dict(boxstyle="round,pad=0.5", 
-                                        facecolor="lightyellow", alpha=0.5))
+fig.text(0.5, -0.05, summary_text,
+         ha='center', va='top', fontsize=12, color='darkblue',
+         bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5))
 
 st.pyplot(fig)
+
 
 
 
