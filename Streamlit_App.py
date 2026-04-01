@@ -213,7 +213,7 @@ summary_text = (
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 15px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 0.5px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 18px 30px;
@@ -270,7 +270,7 @@ summary_text = (
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 15px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 0.5px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 18px 30px;
@@ -315,7 +315,7 @@ summary_text = (
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 12px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 0.5px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 18px 30px;
@@ -360,7 +360,7 @@ summary_text = (
 
 # Closer version - reduced top margin
 st.markdown(f"""
-<div style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 0.5px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 16px 28px;
@@ -402,7 +402,7 @@ summary_text = (
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 15px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 0.5px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 18px 30px;
