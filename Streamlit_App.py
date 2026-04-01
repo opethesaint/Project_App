@@ -158,15 +158,14 @@ ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
 # Adjust bottom margin so chart leaves space for summary
 fig6.subplots_adjust(bottom=0.25)
 
-# Add summary text at bottom (like xlabel)
+# Add summary text (two lines)
 summary_text = (
     "The top two categories — Auto Crashes and Banditry —\n"
     "together account for over half (50.5%) of all incidents, "
     "showing they dominate the landscape compared to other causes."
 )
 
-
-# Place summary below chart, centered
+# Place summary below chart, centered (like xlabel)
 ax6.set_xlabel(
     summary_text,
     fontsize=14,
@@ -174,7 +173,15 @@ ax6.set_xlabel(
     labelpad=40
 )
 
+# Add bold summary annotation closer to chart
+fig6.text(
+    0.5, -0.01, summary_text,   # closer to chart
+    ha='center', va='center',
+    fontsize=20, weight='bold'
+)
+
 st.pyplot(fig6)
+
 
 
 
