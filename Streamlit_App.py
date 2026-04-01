@@ -160,7 +160,7 @@ ax6.pie(
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=24, pad=10)
 
 # Adjust bottom margin so chart sits closer to summary
-fig6.subplots_adjust(bottom=0.0005)
+fig6.subplots_adjust(bottom=0.001)
 
 # Add summary text closer to the chart
 summary_text = (
