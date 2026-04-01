@@ -160,10 +160,11 @@ fig6.subplots_adjust(bottom=0.25)
 
 # Add summary text at bottom (like xlabel)
 summary_text = (
-    "The top two categories — Auto Crashes and Banditry — "
+    "The top two categories — Auto Crashes and Banditry —\n"
     "together account for over half (50.5%) of all incidents, "
     "showing they dominate the landscape compared to other causes."
 )
+
 
 # Place summary below chart, centered
 ax6.set_xlabel(
