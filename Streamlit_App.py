@@ -167,7 +167,7 @@ summary_text = (
 )
 
 st.markdown(f"""
-<div style="text-align: center; margin-top: 15px; margin-bottom: 20px;">
+<div style="text-align: center; margin-top: 12px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
         padding: 18px 30px;
