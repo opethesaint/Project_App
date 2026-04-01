@@ -478,8 +478,7 @@ st.markdown(f"""
 
 
 st.markdown("### 💡 Did You Know?")
-st.info(random.choice(facts))
-st.info(random.choice(facts2))
+
 
 #st.success("""
    # Lagos State is divided into 20 Local Government Areas (LGAs) and 
