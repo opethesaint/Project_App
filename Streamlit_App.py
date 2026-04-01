@@ -339,7 +339,6 @@ plt.axis('off')
 st.pyplot(dummy_fig, use_container_width=True)
 
 
-
 # Q5: Has the frequency or severity of fatal incidents increased or decreased year-over-year?
 st.subheader("Question 5:: Has the frequency or severity of fatal incidents increased or decreased year-over-year?")
 
@@ -349,25 +348,25 @@ line_chart = alt.Chart(df).mark_line(point=True).encode(
     tooltip=['year(Start date)', 'sum(Number of deaths)']
 ).properties(
     width=700, 
-    height=500,                    # Added height for better proportion
+    height=500,
     title='Total Deaths by Year (Trend)'
 )
 
 st.altair_chart(line_chart, use_container_width=True)
 
-# ====================== SUMMARY TEXT (Consistent with previous charts) ======================
+# ====================== SUMMARY TEXT (Closer to the chart) ======================
 summary_text = (
     "From 1970 to 2022, there’s a sharp rise, reaching about 8,000 deaths. "
     "The numbers continue climbing in 2023 and 2024, peaking at around 12,000 deaths. "
     "In 2025, the trend reverses dramatically, showing a steep decline."
 )
 
-# Clean and consistent HTML box (recommended for Altair charts)
+# Closer version - reduced top margin
 st.markdown(f"""
-<div style="text-align: center; margin-top: 25px; margin-bottom: 15px;">
+<div style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
     <div style="
         display: inline-block;
-        padding: 18px 30px;
+        padding: 16px 28px;
         background-color: #fff9e6;
         border-radius: 12px;
         border: 1px solid #f0d68a;
@@ -376,13 +375,12 @@ st.markdown(f"""
         color: #003366;
         font-weight: bold;
         max-width: 88%;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     ">
         {summary_text}
     </div>
 </div>
 """, unsafe_allow_html=True)
-
 
 
 #Q6 Top 8 states have the highest cumulative death toll?
