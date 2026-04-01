@@ -181,7 +181,7 @@ fig = sns.catplot(
     inner='quartile', height=6, aspect=1.5, palette="viridis"
 )
 sns.stripplot(
-    data=df_top, x='State', y='Number of deaths', color='white',
+    data=df_top, x='', y='Number of deaths', color='white',
     size=3, alpha=0.6, ax=fig.ax
 )
 fig.set_xticklabels(rotation=45, ha="right")
