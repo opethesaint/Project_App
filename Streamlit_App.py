@@ -383,13 +383,48 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-#Q6 Top 8 states have the highest cumulative death toll?
+# Q6: Top 8 states have the highest cumulative death toll?
 st.subheader("Question 6:: Which states have the highest cumulative death toll?")
+
 state_data = df.groupby('State')['Number of deaths'].sum().nlargest(8).reset_index()
+
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.barplot(data=state_data, x='Number of deaths', y='State', palette='tab20', ax=ax)
 ax.set_title("Top 8 States by Total Deaths", fontsize=16)
+
+# Optional improvements
+ax.set_xlabel("Total Number of Deaths", fontsize=12)
+ax.set_ylabel("State", fontsize=12)
+
 st.pyplot(fig)
+
+# ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
+summary_text = (
+    "The key takeaway is that Borno stands out with a dramatically higher death toll "
+    "compared to the rest, while Lagos records the lowest."
+)
+
+st.markdown(f"""
+<div style="text-align: center; margin-top: 15px; margin-bottom: 20px;">
+    <div style="
+        display: inline-block;
+        padding: 18px 30px;
+        background-color: #fff9e6;
+        border-radius: 12px;
+        border: 1px solid #f0d68a;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #003366;
+        font-weight: bold;
+        max-width: 88%;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    ">
+        {summary_text}
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+
 
 
 #Q7 Which months are the "deadliest" across the historical record?
