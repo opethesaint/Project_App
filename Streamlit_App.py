@@ -171,9 +171,12 @@ summary_text = (
 
 fig6.text(
     0.5, -0.05, summary_text,
-    ha='center', va='top', fontsize=12, color='darkblue',
-    bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5)
+    ha='center', va='top',
+    fontsize=16, color='darkblue',
+    wrap=True,   # allow text to wrap across the figure width
+    bbox=dict(boxstyle="round,pad=1.0", facecolor="lightyellow", alpha=0.5)
 )
+
 
 st.pyplot(fig6)
 
