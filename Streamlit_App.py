@@ -193,7 +193,7 @@ summary_text = (
 )
 
 
-fig.fig.subplots_adjust(bottom=0.2)
+fig.fig.subplots_adjust(bottom=0.1)
 
 # Add summary text below the chart
 fig.fig.text(
