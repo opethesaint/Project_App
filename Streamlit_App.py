@@ -144,7 +144,7 @@ filtered_df = df[mask]
 #Q1 Which incidents are associated with the highest number of deaths?
 st.subheader("Question 1:: Which Incident are associated with the highest number of deaths?")
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
-fig6, ax6 = plt.subplots(figsize=(22, 18))  # Square and large
+fig6, ax6 = plt.subplots(figsize=(24, 18))  # Square and large
 
 ax6.pie(
     top_titles,
@@ -158,7 +158,7 @@ ax6.pie(
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=24)
 
 # Adjust bottom margin to make space but not too much
-fig6.subplots_adjust(bottom=0.15)
+fig6.subplots_adjust(bottom=0.1)
 
 # Add summary text closer to the pie
 summary_text = (
