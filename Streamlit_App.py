@@ -165,22 +165,17 @@ summary_text = (
     "showing they dominate the landscape compared to other causes."
 )
 
-# Place summary below chart, centered (like xlabel)
-ax6.set_xlabel(
-    summary_text,
-    fontsize=14,
-    color='darkblue',
-    labelpad=40
-)
-
 # Add bold summary annotation closer to chart
 fig6.text(
-    0.5, -0.01, summary_text,   # closer to chart
+    0.5, -0.05, summary_text,   # position below chart
     ha='center', va='center',
-    fontsize=20, weight='bold'
+    fontsize=16, weight='bold', color='darkblue',
+    bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5)
 )
 
 st.pyplot(fig6)
+
+
 
 
 
