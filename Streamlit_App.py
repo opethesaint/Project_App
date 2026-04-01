@@ -198,7 +198,7 @@ summary_text = (
 fig.fig.text(
     0.5, -0.05, summary_text,
     ha='center', va='center',
-    fontsize=14, weight='bold'
+    fontsize=12, weight='bold'
 )
 
 # Display the figure in Streamlit
