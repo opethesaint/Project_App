@@ -170,7 +170,7 @@ summary_text = (
 )
 
 fig6.text(
-    0.5, -0.01, summary_text,   # moved closer (was -0.05)
+    0.5, -0.05, summary_text,   # moved closer (was -0.05)
     ha='center', va='top', fontsize=14, color='darkblue',
     bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5)
 )
