@@ -475,13 +475,10 @@ st.markdown(f"""
 
 
 st.markdown("### 💡 Did You Know?")
+ st.success("""
+    - Over 7.3 million Nigerians require humanitarian assistance in 2026.
+    """)
 
-
-#st.success("""
-   # Lagos State is divided into 20 Local Government Areas (LGAs) and 
-    #57 Local Council Development Areas (LCDAs) for effective administration 
-   # and development.
-  #  """)
 
 
 # ... my app content ...
