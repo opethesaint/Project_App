@@ -179,11 +179,6 @@ st.pyplot(fig6)
 
 
 
-
-
-
-
-
 #Q2 How does the number of deaths vary across different States, using top 10 states?
 st.subheader("Question 2:: How does the number of deaths vary across different States, using top 10 states?")
 top_states = df.groupby("State")["Number of deaths"].sum().nlargest(10).index
