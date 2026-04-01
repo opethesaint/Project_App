@@ -141,44 +141,50 @@ filtered_df = df[mask]
 
 
 
-#Q1 Which incidents are associated with the highest number of deaths?
+#Q1 Which Incident are associated with the highest number of deaths?
 st.subheader("Question 1:: Which Incident are associated with the highest number of deaths?")
+
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
 
-# Increase figure size for a bigger pie chart
-fig6, ax6 = plt.subplots(figsize=(24, 16))  
+fig6, ax6 = plt.subplots(figsize=(20, 12))
+ax6.pie(top_titles, 
+        labels=top_titles.index, 
+        autopct='%1.1f%%',
+        startangle=90, 
+        textprops={'fontsize': 14})
+ax6.set_title("Deaths by Incident (Top 10)", fontsize=18)
 
-ax6.pie(
-    top_titles,
-    labels=top_titles.index,
-    autopct='%1.1f%%',
-    startangle=90,
-    textprops={'fontsize': 16}
-)
-ax6.set_title("Deaths by Incident (Top 10)", fontsize=22)
-
-# Reduce bottom margin significantly so there's less empty space
-fig6.subplots_adjust(bottom=0.12)   # Changed from 0.20 → 0.12
-
-# Add summary text — moved much closer to the chart
-summary_text = (
-    "The top two categories — Auto Crashes and Banditry —\n"
-    "together account for over half (50.5%) of all incidents, "
-    "showing they dominate the landscape compared to other causes."
-)
-
-fig6.text(
-    0.5, 0.04,          # Changed from -0.01 → 0.04 (positive = closer to chart)
-    summary_text,
-    ha='center', 
-    va='bottom',        # Changed to 'bottom' so text sits nicely above the line
-    fontsize=18, 
-    weight='bold', 
-    color='darkblue',
-    bbox=dict(boxstyle="round,pad=0.6", facecolor="lightyellow", alpha=0.6)
-)
+# Optional: Improve pie chart appearance
+ax6.axis('equal')  # Ensures the pie is drawn as a circle
 
 st.pyplot(fig6)
+
+# ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
+summary_text = (
+    "The top two categories — Auto Crashes and Banditry — together account for "
+    "over half (50.5%) of all incidents, showing they dominate the landscape "
+    "compared to other causes."
+)
+
+st.markdown(f"""
+<div style="text-align: center; margin-top: 15px; margin-bottom: 20px;">
+    <div style="
+        display: inline-block;
+        padding: 18px 30px;
+        background-color: #fff9e6;
+        border-radius: 12px;
+        border: 1px solid #f0d68a;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #003366;
+        font-weight: bold;
+        max-width: 88%;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    ">
+        {summary_text}
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 
 
