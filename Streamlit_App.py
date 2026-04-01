@@ -151,7 +151,7 @@ ax6.pie(top_titles,
         labels=top_titles.index, 
         autopct='%1.1f%%',
         startangle=90, 
-        textprops={'fontsize': 16})
+        textprops={'fontsize': 18, 'fontweight': 'bold'},   # Bigger + Bold labels
 ax6.set_title("Deaths by Incident (Top 10)", fontsize=22)
 
 # Optional: Improve pie chart appearance
