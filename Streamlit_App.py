@@ -181,11 +181,11 @@ fig = sns.catplot(
     inner='quartile', height=6, aspect=1.5, palette="viridis"
 )
 sns.stripplot(
-    data=df_top, x='', y='Number of deaths', color='white',
+    data=df_top, x='State', y='Number of deaths', color='white',
     size=3, alpha=0.6, ax=fig.ax
 )
 fig.set_xticklabels(rotation=45, ha="right")
-fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=16, y=1.02)
+fig.fig.suptitle("Distribution of Number of Deaths by Top 10 States", fontsize=12, y=1.02)
 
 summary_text = (
     "The states with the highest variability (Benue, Kaduna, Borno) experience unpredictable swings in death numbers,\n"
