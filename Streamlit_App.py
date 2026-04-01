@@ -199,9 +199,8 @@ fig.fig.text(
     fontsize=14, weight='bold'
 )
 
+# Display the figure in Streamlit
 st.pyplot(fig.fig)
-
-st.pyplot(fig.fig2)
 
 
 
