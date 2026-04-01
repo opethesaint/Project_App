@@ -146,7 +146,7 @@ st.subheader("Question 1:: Which Incident are associated with the highest number
 
 top_titles = df.groupby("Incident")["Number of deaths"].sum().nlargest(10)
 
-fig6, ax6 = plt.subplots(figsize=(22, 12))
+fig6, ax6 = plt.subplots(figsize=(26, 16))
 ax6.pie(top_titles, 
         labels=top_titles.index, 
         autopct='%1.1f%%',
