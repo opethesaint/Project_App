@@ -165,16 +165,18 @@ fig6.subplots_adjust(bottom=0.00001)
 # Add summary text just below the pie
 summary_text = (
     "The top two categories — Auto Crashes and Banditry —\n"
-    "together account for over half (50.5%) of all incidents, showing they dominate the landscape compared to other causes."
+    "together account for over half (50.5%) of all incidents, "
+    "showing they dominate the landscape compared to other causes."
 )
 
 fig6.text(
-    0.5, -0.01, summary_text,  # closer to chart
-    ha='center', va='center',
-    fontsize=20, weight='bold'
+    0.5, -0.05, summary_text,
+    ha='center', va='top', fontsize=12, color='darkblue',
+    bbox=dict(boxstyle="round,pad=0.5", facecolor="lightyellow", alpha=0.5)
 )
 
 st.pyplot(fig6)
+
 
 
 
