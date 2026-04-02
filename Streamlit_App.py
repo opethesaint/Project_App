@@ -268,7 +268,7 @@ st.pyplot(fig)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
 summary_text = (
-    "Incident counts fluctuate throughout the year, with noticeable peaks in January."
+    "<strong>INSIGHT::</strong>&nbsp;&nbsp;&nbsp; Incident counts fluctuate throughout the year, with noticeable peaks in January."
     "July, and October, and dips in May, April, and November. "
     "Overall, the average is about 624 incidents per month.")
 
@@ -313,7 +313,7 @@ st.altair_chart(chart, use_container_width=True)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
 summary_text = (
-    "Borno and Zamfara stand out with both higher median deaths and wider variability, "
+    "<strong>INSIGHT::</strong>&nbsp;&nbsp;&nbsp; Borno and Zamfara stand out with both higher median deaths and wider variability, "
     "while Abuja, Imo, and Lagos show relatively stable and lower death counts."
 )
 
@@ -356,7 +356,7 @@ st.altair_chart(line_chart, use_container_width=True)
 
 # ====================== SUMMARY TEXT (Closer to the chart) ======================
 summary_text = (
-    "From 1970 to 2022, there’s a sharp rise, reaching about 8,000 deaths. "
+    "<strong>INSIGHT::</strong>&nbsp;&nbsp;&nbsp; From 1970 to 2022, there’s a sharp rise, reaching about 8,000 deaths. "
     "The numbers continue climbing in 2023 and 2024, peaking at around 12,000 deaths. "
    
 )
@@ -400,7 +400,7 @@ st.pyplot(fig)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
 summary_text = (
-    "The key takeaway is that Borno stands out with a dramatically higher death toll "
+    "<strong>INSIGHT::</strong>&nbsp;&nbsp;&nbsp; The key takeaway is that Borno stands out with a dramatically higher death toll "
     "compared to the rest, while Lagos records the lowest."
 )
 
@@ -448,7 +448,7 @@ st.altair_chart(month_chart, use_container_width=True)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
 summary_text = (
-    "Mortality is strongly seasonal, with a sharp spike in January and a dip in June, "
+    "<strong>INSIGHT::</strong>&nbsp;&nbsp;&nbsp; Mortality is strongly seasonal, with a sharp spike in January and a dip in June, "
     "while the rest of the year remains relatively steady."
 )
 
