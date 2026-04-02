@@ -164,7 +164,7 @@ st.pyplot(fig6)
 
 # ====================== SUMMARY TEXT (HTML Design) ======================
 summary_text = (
-    "<strong>INSIGHT::</strong> --  The top two categories — Auto Crashes and Banditry — "
+    "<strong>INSIGHT::</strong>The top two categories — Auto Crashes and Banditry — "
     "Together, they account for over half (50.5%) of all incidents, showing they dominate."
     "The landscape compared to other causes."
 )
