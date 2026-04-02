@@ -358,7 +358,7 @@ st.altair_chart(line_chart, use_container_width=True)
 summary_text = (
     "From 1970 to 2022, there’s a sharp rise, reaching about 8,000 deaths. "
     "The numbers continue climbing in 2023 and 2024, peaking at around 12,000 deaths. "
-    "In 2025, the trend reverses dramatically, showing a steep decline."
+   
 )
 
 # Closer version - reduced top margin
