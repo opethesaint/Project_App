@@ -270,7 +270,7 @@ st.pyplot(fig)
 summary_text = (
     "Incident counts fluctuate throughout the year, with noticeable peaks in January."
     "July, and October, and dips in May, April, and November. "
-    "Overall, the average is about 624 incidents per month, showing.")
+    "Overall, the average is about 624 incidents per month.")
 
 st.markdown(f"""
 <div style="text-align: center; margin-top: 0.5px; margin-bottom: 20px;">
