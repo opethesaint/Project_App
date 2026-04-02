@@ -212,7 +212,7 @@ st.pyplot(fig.fig)
 
 # ====================== SUMMARY TEXT (HTML Design - Consistent) ======================
 summary_text = (
-    "The states with the highest variability (Benue, Kaduna, Borno) experience "
+    "<strong>INSIGHT::</strong>&nbsp;&nbsp;&nbsp; The states with the highest variability (Benue, Kaduna, Borno) experience "
     "unpredictable swings in death numbers, while Ogun and Lagos show more "
     "stable, consistent patterns."
 )
