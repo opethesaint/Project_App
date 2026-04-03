@@ -507,16 +507,37 @@ st.markdown(
 ##### LAST WORK
 import streamlit as st
 
-# Using st.markdown (more compatible)
+st.set_page_config(page_title="Chat Demo")
+
+# Track whether chat is open
+if "chat_open" not in st.session_state:
+    st.session_state.chat_open = False
+
+# Floating button
 st.markdown("""
     <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-        <button onclick="alert('Chat support coming soon!')" 
-                style="background: #25D366; color: white; padding: 12px 20px; 
-                       border: none; border-radius: 50px; cursor: pointer;">
-            💬 Live Chat
-        </button>
+        <form action="" method="get">
+            <button type="submit" style="background: #25D366; color: white; 
+                    padding: 12px 20px; border: none; border-radius: 50px; 
+                    cursor: pointer;">
+                💬 Live Chat
+            </button>
+        </form>
     </div>
 """, unsafe_allow_html=True)
+
+# Use a regular Streamlit button to toggle chat
+if st.button("Toggle Chat Window"):
+    st.session_state.chat_open = not st.session_state.chat_open
+
+# Show chatbox if open
+if st.session_state.chat_open:
+    st.markdown("### Chat Window")
+    user_msg = st.text_input("Type your message:")
+    if user_msg:
+        st.write("You said:", user_msg)
+        # Here you can connect to an AI backend or support system
+
 
 
 
