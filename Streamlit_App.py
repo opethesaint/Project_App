@@ -117,11 +117,6 @@ incident_options = ["Choose option"] + df['Incident'].unique().tolist()
 incident_option = st.sidebar.selectbox("Choose an Incident", options=incident_options)
 
 
-# I added a Sidebar section
-st.sidebar.header("Feedback")
-if st.sidebar.button("Submit Feedback"):
-    st.toast("Thank you for your feedback! ✨")
-
 
 # I converted the start and end dates to pandas datetime
 df["Start date"] = pd.to_datetime(df["Start date"])
@@ -554,6 +549,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
+##
+#### feedback form
+st.text_area("💬 Leave your feedback here:")
+if st.button("Submit Feedback"):
+    st.success("Thanks for your feedback!")
 
 
