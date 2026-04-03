@@ -494,10 +494,6 @@ st.markdown(
 ##### LAST WORK
 
 
-
-
-
-
 ##
 #### feedback form
 st.text_area("💬 Leave your feedback here:")
