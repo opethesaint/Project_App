@@ -609,5 +609,18 @@ if st.button("Submit Feedback"):
     st.success("Thanks for your feedback!")
 
 
+#####
+st.markdown(
+    """
+    <div style="text-align:center; margin-top:20px;">
+        <a href="https://twitter.com" target="_blank">🐦 Twitter</a> |
+        <a href="https://linkedin.com" target="_blank">💼 LinkedIn</a> |
+        <a href="https://github.com" target="_blank">💻 GitHub</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
 
 
