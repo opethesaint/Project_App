@@ -552,26 +552,29 @@ st.markdown(
 ##
 #### feedback form
 import streamlit as st
-import sendgrid
-from sendgrid.helpers.mail import Mail
-
-sg = sendgrid.SendGridAPIClient(api_key=st.secrets["SENDGRID_API_KEY"])
+import smtplib
+from email.mime.text import MIMEText
 
 feedback = st.text_area("💬 Leave your feedback here:")
 
 if st.button("Submit Feedback"):
     if feedback.strip():
-        message = Mail(
-            from_email="your_email@example.com",
-            to_emails="your_email@example.com",
-            subject="New Feedback",
-            plain_text_content=feedback
-        )
+        sender_email = "your_email@gmail.com"
+        receiver_email = "your_email@gmail.com"
+        password = st.secrets["GMAIL_APP_PASSWORD"]  # store securely in secrets
+
+        msg = MIMEText(feedback)
+        msg["Subject"] = "New Feedback from Streamlit App"
+        msg["From"] = sender_email
+        msg["To"] = receiver_email
+
         try:
-            sg.send(message)
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, msg.as_string())
             st.success("✅ Feedback sent successfully!")
         except Exception as e:
-            st.error(f"❌ Error: {e}")
+            st.error(f"❌ Error sending email: {e}")
 
 
 
