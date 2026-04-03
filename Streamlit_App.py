@@ -505,13 +505,19 @@ st.markdown(
 
 
 ##### LAST WORK
+
 import streamlit as st
 
-st.markdown(""" <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;"> <button onclick="alert('Chat support coming soon!')" 
-style="background: #25D366; color: white; padding: 12px 20px; 
-border: none; border-radius: 50px; cursor: pointer;"> 💬 Live Chat </button> </div> """, unsafe_allow_html=True)
-
-
+# This always works in any Streamlit environment
+st.markdown("""
+    <div style="position: fixed; bottom: 50px; right: 20px;">
+        <a href="https://wa.me/message/J37UJJHFVN2WO1" target="_blank" 
+           style="background: #25D366; color: white; padding: 12px 20px; 
+                  border-radius: 50px; text-decoration: none; font-weight: bold;">
+            💬 WhatsApp Chat
+        </a>
+    </div>
+""", unsafe_allow_html=True)
 
 
 
