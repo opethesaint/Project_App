@@ -493,3 +493,67 @@ st.markdown(
     "<h3 style='text-align: center;'>Thank you for visiting! 😊</h3>",
     unsafe_allow_html=True
 )
+
+
+
+##### LAST WORK
+
+st.markdown(
+    """
+    <style>
+    /* Floating chat button */
+    .chat-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #2196F3;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        cursor: pointer;
+        animation: pulse 2s infinite;
+        z-index: 9999;
+    }
+
+    /* Pulsing animation */
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(33,150,243, 0.7); }
+        70% { box-shadow: 0 0 0 20px rgba(33,150,243, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(33,150,243, 0); }
+    }
+
+    /* Tooltip text above button */
+    .chat-tooltip {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        background: #e3f2fd;
+        color: #2196F3;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    </style>
+
+    <div class="chat-tooltip">👋 We Are Here!</div>
+    <div class="chat-button">💬</div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
+
