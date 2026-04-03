@@ -513,21 +513,27 @@ st.set_page_config(page_title="Chat Demo")
 if "chat_open" not in st.session_state:
     st.session_state.chat_open = False
 
-# Floating button
+# Floating chat bubble styled with CSS
 st.markdown("""
-    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-        <form action="" method="get">
-            <button type="submit" style="background: #25D366; color: white; 
-                    padding: 12px 20px; border: none; border-radius: 50px; 
-                    cursor: pointer;">
-                💬 Live Chat
-            </button>
-        </form>
-    </div>
-""", unsafe_allow_html=True)
+    <style>
+    .chat-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25D366;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 9999;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
-# Use a regular Streamlit button to toggle chat
-if st.button("Toggle Chat Window"):
+# Use a Streamlit button instead of HTML form submit
+if st.button("💬 Live Chat", key="chat_toggle", help="Open chat", use_container_width=False):
     st.session_state.chat_open = not st.session_state.chat_open
 
 # Show chatbox if open
@@ -537,6 +543,7 @@ if st.session_state.chat_open:
     if user_msg:
         st.write("You said:", user_msg)
         # Here you can connect to an AI backend or support system
+
 
 
 
