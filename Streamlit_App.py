@@ -559,9 +559,9 @@ feedback = st.text_area("💬 Leave your feedback here:")
 
 if st.button("Submit Feedback"):
     if feedback.strip():
-        sender_email = "your_email@gmail.com"
-        receiver_email = "your_email@gmail.com"
-        password = st.secrets["GMAIL_APP_PASSWORD"]  # store securely in secrets
+        sender_email = "your_email@gmail.com"   # your Gmail address
+        receiver_email = "opethesaint@gmail.com"  # recipient address
+        password = st.secrets["GMAIL_APP_PASSWORD"]  # stored securely in Streamlit secrets
 
         msg = MIMEText(feedback)
         msg["Subject"] = "New Feedback from Streamlit App"
