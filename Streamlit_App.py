@@ -508,8 +508,7 @@ st.markdown(
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.title("My Streamlit App")
-
+# Crisp Chat Widget injected immediately
 chat_code = """
 <script type="text/javascript">
 window.$crisp=[];window.CRISP_WEBSITE_ID="YOUR_CRISP_WEBSITE_ID";
@@ -521,8 +520,6 @@ window.$crisp=[];window.CRISP_WEBSITE_ID="YOUR_CRISP_WEBSITE_ID";
 })();
 </script>
 """
-
-components.html(chat_code, height=0)
 
 
 
