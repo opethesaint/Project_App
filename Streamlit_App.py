@@ -495,55 +495,54 @@ st.markdown(
 import streamlit as st
 from streamlit.components.v1 import html
 
-# ====================== FLOATING LIVE CHAT WIDGET ======================
+# ====================== FLOATING LIVE CHAT WIDGET (Bottom Right) ======================
 
 chat_html = """
 <style>
-  #streamlit-chat-widget {
+  #streamlit-floating-chat {
     position: fixed !important;
-    bottom: 25px !important;
-    right: 25px !important;
+    bottom: 30px !important;
+    right: 30px !important;
     z-index: 999999 !important;
-    font-family: system-ui, Arial, sans-serif;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
   }
 </style>
 
-<div id="streamlit-chat-widget">
-  <!-- Floating Chat Button -->
+<div id="streamlit-floating-chat">
+  <!-- Chat Button -->
   <button onclick="toggleChat()" 
     style="background: #0066ff; color: white; border: none; border-radius: 50%; width: 70px; height: 70px; 
-           font-size: 34px; cursor: pointer; box-shadow: 0 8px 25px rgba(0, 102, 255, 0.5); 
-           transition: transform 0.2s;">
+           font-size: 36px; cursor: pointer; box-shadow: 0 8px 25px rgba(0,102,255,0.5);">
     💬
   </button>
 
   <!-- Chat Window -->
-  <div id="chat-window" style="display: none; position: fixed; bottom: 110px; right: 25px; width: 360px; height: 520px; 
-       background: white; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.3); overflow: hidden; 
+  <div id="chat-window" style="display: none; position: fixed; bottom: 115px; right: 30px; width: 360px; height: 520px; 
+       background: white; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.35); overflow: hidden; 
        flex-direction: column; border: 1px solid #ddd;">
     
     <!-- Header -->
     <div style="background: #0066ff; color: white; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
       <div>
         <strong>Live Chat Support</strong><br>
-        <small>We reply quickly</small>
+        <small>We usually reply fast</small>
       </div>
-      <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 26px; cursor: pointer;">✕</button>
+      <button onclick="toggleChat()" style="background:none; border:none; color:white; font-size: 26px; cursor:pointer;">✕</button>
     </div>
 
-    <!-- Messages Area -->
-    <div id="chat-messages" style="flex: 1; padding: 16px; overflow-y: auto; background: #f8f9fa; display: flex; flex-direction: column; gap: 12px;">
-      <div style="background: #e9ecef; padding: 12px 16px; border-radius: 18px; max-width: 85%; align-self: flex-start;">
-        Hello! 👋 How can we help you today?
+    <!-- Messages -->
+    <div id="chat-messages" style="flex:1; padding:16px; overflow-y:auto; background:#f8f9fa; display:flex; flex-direction:column; gap:12px;">
+      <div style="background:#e9ecef; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-start;">
+        Hi there! 👋 How can we help you today?
       </div>
     </div>
 
-    <!-- Input Area -->
-    <div style="padding: 12px; background: white; border-top: 1px solid #eee; display: flex; gap: 8px;">
+    <!-- Input -->
+    <div style="padding:12px; background:white; border-top:1px solid #eee; display:flex; gap:8px;">
       <input type="text" id="chat-input" placeholder="Type your message..." 
-        style="flex: 1; padding: 14px 18px; border: 1px solid #ccc; border-radius: 30px; outline: none; font-size: 15px;">
+        style="flex:1; padding:14px 18px; border:1px solid #ccc; border-radius:30px; outline:none; font-size:15px;">
       <button onclick="sendMessage()" 
-        style="background: #0066ff; color: white; border: none; border-radius: 50%; width: 52px; height: 52px; cursor: pointer; font-size: 22px;">
+        style="background:#0066ff; color:white; border:none; border-radius:50%; width:52px; height:52px; cursor:pointer; font-size:22px;">
         →
       </button>
     </div>
@@ -558,40 +557,39 @@ function toggleChat() {
 
 function sendMessage() {
   var input = document.getElementById('chat-input');
-  var msg = input.value.trim();
-  if (!msg) return;
+  var text = input.value.trim();
+  if (!text) return;
 
-  var messages = document.getElementById('chat-messages');
-  
-  // Add user message
-  var userDiv = document.createElement('div');
-  userDiv.style.cssText = 'background:#0066ff; color:white; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-end;';
-  userDiv.textContent = msg;
-  messages.appendChild(userDiv);
-  messages.scrollTop = messages.scrollHeight;
+  var messagesDiv = document.getElementById('chat-messages');
+
+  // User bubble
+  var userMsg = document.createElement('div');
+  userMsg.style.cssText = 'background:#0066ff; color:white; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-end;';
+  userMsg.textContent = text;
+  messagesDiv.appendChild(userMsg);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
   input.value = '';
 
   // Simulated reply
   setTimeout(() => {
-    var replyDiv = document.createElement('div');
-    replyDiv.style.cssText = 'background:#e9ecef; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-start;';
-    replyDiv.textContent = "Thank you! Our support team will reply shortly.";
-    messages.appendChild(replyDiv);
-    messages.scrollTop = messages.scrollHeight;
-  }, 800);
+    var replyMsg = document.createElement('div');
+    replyMsg.style.cssText = 'background:#e9ecef; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-start;';
+    replyMsg.textContent = "Thank you for your message! Our team will get back to you shortly.";
+    messagesDiv.appendChild(replyMsg);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }, 700);
 }
 
-// Send with Enter key
-document.getElementById('chat-input').addEventListener('keypress', function(e) {
+// Press Enter to send
+document.getElementById('chat-input').addEventListener('keypress', (e) => {
   if (e.key === "Enter") sendMessage();
 });
 </script>
 """
 
-# Inject the widget — Important: Use high height so it doesn't collapse on Cloud
-html(chat_html, height=950)
-
+# Inject the widget — Use a high height so it renders properly on Cloud
+html(chat_html, height=800)
 
 
 
