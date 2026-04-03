@@ -508,23 +508,91 @@ st.markdown(
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Inject Tawk.to Chat Widget immediately
+st.set_page_config(page_title="AI Chat App", layout="wide")
+
+# Inject floating chat bubble with AI backend
 chat_code = """
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/DEFAULT';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-})();
+<style>
+.chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1e88e5;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 28px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.chat-window {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: #121212;
+  color: white;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.chat-window header {
+  padding: 10px;
+  background: #1e88e5;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+.chat-window .messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+.chat-window input {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+}
+</style>
+
+<div class="chat-bubble" onclick="document.querySelector('.chat-window').style.display='flex'">💬</div>
+
+<div class="chat-window">
+  <header>AI Assistant</header>
+  <div class="messages" id="messages">Hello! How can I help you today?</div>
+  <input type="text" id="userInput" placeholder="Type a message..." 
+         onkeydown="if(event.key==='Enter'){sendMessage()}">
+</div>
+
+<script>
+function sendMessage(){
+  var input = document.getElementById('userInput');
+  var msg = input.value;
+  if(msg.trim() === '') return;
+  var messages = document.getElementById('messages');
+  messages.innerHTML += '<div><b>You:</b> ' + msg + '</div>';
+  input.value = '';
+
+  // Call backend AI via Streamlit (placeholder)
+  fetch('/ai_response?msg=' + encodeURIComponent(msg))
+    .then(r => r.text())
+    .then(data => {
+      messages.innerHTML += '<div><b>AI:</b> ' + data + '</div>';
+      messages.scrollTop = messages.scrollHeight;
+    });
+}
 </script>
 """
 
-# Render invisibly so it loads right away
 components.html(chat_code, height=0, scrolling=False)
+
+
 
 
 
