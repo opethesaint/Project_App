@@ -1,2 +1,5 @@
 streamlit
 matplotlib
+streamlit.components.v1
+html
+pandas
