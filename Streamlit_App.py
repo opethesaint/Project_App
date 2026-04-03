@@ -93,8 +93,8 @@ st.sidebar.markdown(
     """
     <div style="padding:10px; border-radius:10px; background:#fff3e0;">
         <h3 style="margin:0;">👤 User Profile</h3>
-        <p style="margin:0;">Name: Rilwan</p>
-        <p style="margin:0;">Role: Data Explorer</p>
+        <p style="margin:0;">Name: Rotimi</p>
+        <p style="margin:0;">Role: Data Analyst</p>
     </div>
     """,
     unsafe_allow_html=True
