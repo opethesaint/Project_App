@@ -589,7 +589,7 @@ document.getElementById('chat-input').addEventListener('keypress', (e) => {
 """
 
 # Inject the widget — Use a high height so it renders properly on Cloud
-html(chat_html, height=300)
+html(chat_html, height=100)
 
 
 
