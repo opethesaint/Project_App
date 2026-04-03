@@ -492,110 +492,6 @@ st.markdown(
 
 
 ##### LAST WORK
-import streamlit as st
-from streamlit.components.v1 import html
-
-# ====================== FLOATING LIVE CHAT WIDGET (Bottom Right) ======================
-
-chat_html = """
-<style>
-  #streamlit-floating-chat {
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
-    z-index: 999999 !important;
-    font-family: system-ui, -apple-system, Arial, sans-serif;
-  }
-</style>
-
-<div id="streamlit-floating-chat">
-  <!-- Chat Button -->
-  <button onclick="toggleChat()" 
-    style="background: #0066ff; color: white; border: none; border-radius: 50%; width: 70px; height: 70px; 
-           font-size: 36px; cursor: pointer; box-shadow: 0 8px 25px rgba(0,102,255,0.5);">
-    💬
-  </button>
-
-  <!-- Chat Window -->
-  <div id="chat-window" style="display: none; position: fixed; bottom: 115px; right: 30px; width: 360px; height: 520px; 
-       background: white; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.35); overflow: hidden; 
-       flex-direction: column; border: 1px solid #ddd;">
-    
-    <!-- Header -->
-    <div style="background: #0066ff; color: white; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <strong>Live Chat Support</strong><br>
-        <small>We usually reply fast</small>
-      </div>
-      <button onclick="toggleChat()" style="background:none; border:none; color:white; font-size: 26px; cursor:pointer;">✕</button>
-    </div>
-
-    <!-- Messages -->
-    <div id="chat-messages" style="flex:1; padding:16px; overflow-y:auto; background:#f8f9fa; display:flex; flex-direction:column; gap:12px;">
-      <div style="background:#e9ecef; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-start;">
-        Hi there! 👋 How can we help you today?
-      </div>
-    </div>
-
-    <!-- Input -->
-    <div style="padding:12px; background:white; border-top:1px solid #eee; display:flex; gap:8px;">
-      <input type="text" id="chat-input" placeholder="Type your message..." 
-        style="flex:1; padding:14px 18px; border:1px solid #ccc; border-radius:30px; outline:none; font-size:15px;">
-      <button onclick="sendMessage()" 
-        style="background:#0066ff; color:white; border:none; border-radius:50%; width:52px; height:52px; cursor:pointer; font-size:22px;">
-        →
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-function toggleChat() {
-  var win = document.getElementById('chat-window');
-  win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
-}
-
-function sendMessage() {
-  var input = document.getElementById('chat-input');
-  var text = input.value.trim();
-  if (!text) return;
-
-  var messagesDiv = document.getElementById('chat-messages');
-
-  // User bubble
-  var userMsg = document.createElement('div');
-  userMsg.style.cssText = 'background:#0066ff; color:white; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-end;';
-  userMsg.textContent = text;
-  messagesDiv.appendChild(userMsg);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-  input.value = '';
-
-  // Simulated reply
-  setTimeout(() => {
-    var replyMsg = document.createElement('div');
-    replyMsg.style.cssText = 'background:#e9ecef; padding:12px 16px; border-radius:18px; max-width:85%; align-self:flex-start;';
-    replyMsg.textContent = "Thank you for your message! Our team will get back to you shortly.";
-    messagesDiv.appendChild(replyMsg);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-  }, 700);
-}
-
-// Press Enter to send
-document.getElementById('chat-input').addEventListener('keypress', (e) => {
-  if (e.key === "Enter") sendMessage();
-});
-</script>
-"""
-
-# Inject the widget — Use a high height so it renders properly on Cloud
-html(chat_html, height=800)
-
-
-
-
-
-
 
 
 
@@ -604,30 +500,60 @@ html(chat_html, height=800)
 
 ##
 #### feedback form
-import streamlit as st
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
-feedback = st.text_area("💬 Leave your feedback here:")
+st.subheader("💬 Leave your Feedback")
 
-if st.button("Submit Feedback"):
+feedback = st.text_area("Write your feedback or message here:", height=150, placeholder="How can we improve? Any suggestions...")
+
+if st.button("Submit Feedback", type="primary"):
     if feedback.strip():
-        sender_email = "your_email@gmail.com"   # your Gmail address
-        receiver_email = "opethesaint@gmail.com"  # recipient address
-        password = st.secrets["GMAIL_APP_PASSWORD"]  # stored securely in Streamlit secrets
+        with st.spinner("Sending your feedback..."):
+            sender_email = "your_email@gmail.com"          # ← Change to your Gmail
+            receiver_email = "opethesaint@gmail.com"       # ← Your receiving email
+            app_password = st.secrets["GMAIL_APP_PASSWORD"] # Must be set in secrets.toml
 
-        msg = MIMEText(feedback)
-        msg["Subject"] = "New Feedback from Streamlit App"
-        msg["From"] = sender_email
-        msg["To"] = receiver_email
+            # Create email message
+            msg = MIMEMultipart()
+            msg["From"] = sender_email
+            msg["To"] = receiver_email
+            msg["Subject"] = "New Feedback from Streamlit App"
 
-        try:
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-                server.login(sender_email, password)
+            body = f"""
+New Feedback Received:
+
+{feedback}
+
+---
+Sent from: Your Streamlit App
+Time: {st.session_state.get('current_time', 'N/A')}
+            """
+            msg.attach(MIMEText(body, "plain"))
+
+            try:
+                # Recommended: Use port 587 with STARTTLS (more reliable on Streamlit Cloud)
+                server = smtplib.SMTP("smtp.gmail.com", 587)
+                server.starttls()
+                server.login(sender_email, app_password)
                 server.sendmail(sender_email, receiver_email, msg.as_string())
-            st.success("✅ Feedback sent successfully!")
-        except Exception as e:
-            st.error(f"❌ Error sending email: {e}")
+                server.quit()
+
+                st.success("✅ Thank you! Your feedback has been sent successfully.")
+                st.balloons()
+
+            except smtplib.SMTPAuthenticationError:
+                st.error("❌ Authentication failed. Please check your App Password and secrets.toml")
+                st.info("Tip: Make sure 2-Step Verification is enabled on your Gmail and you are using a 16-character **App Password** (not your normal Gmail password).")
+
+            except Exception as e:
+                st.error(f"❌ Failed to send feedback: {str(e)}")
+                st.info("Common fixes:\n"
+                        "1. Use a valid Gmail App Password\n"
+                        "2. Check that the secret is correctly added in Streamlit Cloud → Settings → Secrets")
+    else:
+        st.warning("Please write something before submitting.")
 
 
 
