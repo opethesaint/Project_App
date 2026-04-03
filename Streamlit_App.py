@@ -89,6 +89,18 @@ with col3.popover("Show Total Incidents"):
 
 # I added a sidebar to display an image (images4.jpg)
 # with a fixed width of 200 pixels.
+st.sidebar.markdown(
+    """
+    <div style="padding:10px; border-radius:10px; background:#fff3e0;">
+        <h3 style="margin:0;">👤 User Profile</h3>
+        <p style="margin:0;">Name: Rilwan</p>
+        <p style="margin:0;">Role: Data Explorer</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
 st.sidebar.title("")
 img = Image.open("project_app/images4.jpg")
 img = img.resize((260, 120)) # width=200, height=300   
