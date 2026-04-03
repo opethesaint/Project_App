@@ -492,7 +492,9 @@ st.markdown(
 
 
 ##### LAST WORK
+import streamlit as st
 
+# Your existing CSS for the floating button + tooltip
 st.markdown(
     """
     <style>
@@ -514,40 +516,105 @@ st.markdown(
         cursor: pointer;
         animation: pulse 2s infinite;
         z-index: 9999;
+        transition: transform 0.2s;
     }
-
-    /* Pulsing animation */
+    .chat-button:hover {
+        transform: scale(1.1);
+    }
     @keyframes pulse {
         0% { box-shadow: 0 0 0 0 rgba(33,150,243, 0.7); }
         70% { box-shadow: 0 0 0 20px rgba(33,150,243, 0); }
         100% { box-shadow: 0 0 0 0 rgba(33,150,243, 0); }
     }
-
-    /* Tooltip text above button */
+    /* Tooltip */
     .chat-tooltip {
         position: fixed;
-        bottom: 100px;
+        bottom: 105px;
         right: 30px;
         background: #e3f2fd;
         color: #2196F3;
-        padding: 8px 12px;
+        padding: 8px 16px;
         border-radius: 20px;
         font-weight: bold;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
+        white-space: nowrap;
+        z-index: 9999;
     }
     </style>
-
-    <div class="chat-tooltip">👋 We Are Here!</div>
-    <div class="chat-button">💬</div>
     """,
     unsafe_allow_html=True
 )
+
+# Display the floating elements
+st.markdown(
+    """
+    <div class="chat-tooltip">👋 We Are Here!</div>
+    <div class="chat-button" id="open-chat">💬</div>
+    """,
+    unsafe_allow_html=True
+)
+
+# JavaScript to make the HTML button clickable and trigger Streamlit dialog
+st.markdown(
+    """
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const chatButton = document.getElementById('open-chat');
+        if (chatButton) {
+            chatButton.addEventListener('click', function() {
+                // Trigger Streamlit's dialog via a hidden button
+                const hiddenBtn = document.querySelector('button[data-testid="stButton"][aria-label="Open Chat"]');
+                if (hiddenBtn) hiddenBtn.click();
+            });
+        }
+    });
+    </script>
+    """,
+    unsafe_allow_html=True
+)
+
+# Hidden button that actually opens the dialog
+if st.button("Open Chat", key="open_chat_hidden", label_visibility="hidden"):
+    pass  # This is just a dummy to trigger the dialog
+
+# The actual chat dialog
+@st.dialog("💬 Chat with Us", width="large")
+def chat_dialog():
+    st.write("Hello! How can we help you today?")
+    
+    # Initialize chat history in session state
+    if "chat_messages" not in st.session_state:
+        st.session_state.chat_messages = []
+    
+    # Display chat history
+    for msg in st.session_state.chat_messages:
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+    
+    # Chat input
+    if prompt := st.chat_input("Type your message here..."):
+        # Add user message
+        st.session_state.chat_messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        
+        # Simulate assistant response (replace with your actual logic)
+        with st.chat_message("assistant"):
+            response = f"Thanks for your message: **{prompt}**! This is a demo response."
+            st.markdown(response)
+        
+        # Add assistant message to history
+        st.session_state.chat_messages.append({"role": "assistant", "content": response})
+
+# Auto-open the dialog when the hidden button is clicked via JS
+if st.session_state.get("open_chat_hidden", False) or "open_chat" in st.session_state:
+    chat_dialog()
+    # Reset the state
+    if "open_chat" in st.session_state:
+        del st.session_state.open_chat
+
+
+
 
 ##
 #### feedback form
