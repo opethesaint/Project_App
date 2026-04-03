@@ -505,6 +505,18 @@ st.markdown(
 
 
 ##### LAST WORK
+import streamlit as st
+
+# Using st.markdown (more compatible)
+st.markdown("""
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        <button onclick="alert('Chat support coming soon!')" 
+                style="background: #25D366; color: white; padding: 12px 20px; 
+                       border: none; border-radius: 50px; cursor: pointer;">
+            💬 Live Chat
+        </button>
+    </div>
+""", unsafe_allow_html=True)
 
 
 
