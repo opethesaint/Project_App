@@ -495,8 +495,6 @@ st.markdown(
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.title("My Streamlit App with Live Chat")
-
 # Replace the script below with your own widget code from Tawk.to or Crisp
 chat_code = """
 <!-- Start of Tawk.to Script -->
