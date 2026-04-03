@@ -493,6 +493,101 @@ st.markdown(
 
 ##### LAST WORK
 
+chat_html = """
+<style>
+  #chat-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+</style>
+
+<div id="chat-widget-container">
+  <!-- Chat Button -->
+  <button onclick="toggleChat()" 
+    style="background: #007bff; color: white; border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 32px; cursor: pointer; box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4); transition: all 0.3s;">
+    💬
+  </button>
+
+  <!-- Chat Window -->
+  <div id="chat-window" style="display: none; position: fixed; bottom: 95px; right: 20px; width: 340px; height: 480px; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); overflow: hidden; flex-direction: column; border: 1px solid #ddd;">
+    
+    <!-- Header -->
+    <div style="background: #007bff; color: white; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <strong>Live Chat Support</strong><br>
+        <small style="opacity: 0.9;">Usually replies in seconds</small>
+      </div>
+      <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer; padding: 0 8px;">✕</button>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="chat-messages" style="flex: 1; padding: 15px; overflow-y: auto; background: #f8f9fa; display: flex; flex-direction: column; gap: 12px;">
+      <div style="background: #e9ecef; padding: 12px 16px; border-radius: 18px; max-width: 85%; align-self: flex-start; border-bottom-left-radius: 4px;">
+        Hi there! 👋 How can we help you today?
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div style="padding: 12px; background: white; border-top: 1px solid #eee; display: flex; gap: 8px;">
+      <input type="text" id="chat-input" placeholder="Type your message..." 
+        style="flex: 1; padding: 14px 18px; border: 1px solid #ddd; border-radius: 30px; outline: none; font-size: 15px;">
+      <button onclick="sendMessage()" 
+        style="background: #007bff; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 20px; flex-shrink: 0;">
+        →
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleChat() {
+  const win = document.getElementById('chat-window');
+  win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+}
+
+function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const messages = document.getElementById('chat-messages');
+  
+  // User message
+  const userDiv = document.createElement('div');
+  userDiv.style.cssText = 'background: #007bff; color: white; padding: 12px 16px; border-radius: 18px; max-width: 85%; align-self: flex-end; border-bottom-right-radius: 4px;';
+  userDiv.textContent = msg;
+  messages.appendChild(userDiv);
+  messages.scrollTop = messages.scrollHeight;
+
+  input.value = '';
+
+  // Simulated reply
+  setTimeout(() => {
+    const replyDiv = document.createElement('div');
+    replyDiv.style.cssText = 'background: #e9ecef; padding: 12px 16px; border-radius: 18px; max-width: 85%; align-self: flex-start; border-bottom-left-radius: 4px;';
+    replyDiv.textContent = "Thank you for your message! Our team will reply shortly.";
+    messages.appendChild(replyDiv);
+    messages.scrollTop = messages.scrollHeight;
+  }, 800);
+}
+
+// Send message with Enter key
+document.getElementById('chat-input').addEventListener('keypress', function(e) {
+  if (e.key === "Enter") sendMessage();
+});
+</script>
+"""
+
+# Inject the floating chat widget
+html(chat_html, height=400)
+
+
+
+
+
 
 
 
