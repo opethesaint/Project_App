@@ -534,7 +534,7 @@ if st.button("Submit Feedback"):
 
 
 #####
- st.markdown(
+st.markdown(
     """
     <div style="text-align:center; margin-top:20px;">
         <a href="https://twitter.com" target="_blank">
@@ -553,9 +553,3 @@ if st.button("Submit Feedback"):
     """,
     unsafe_allow_html=True
 )
-
-
-
-
-
-
