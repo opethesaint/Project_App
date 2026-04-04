@@ -538,20 +538,22 @@ st.markdown(
     """
     <div style="text-align:center; margin-top:20px;">
         <a href="https://twitter.com" target="_blank">
-            <img src="iTurn0image1" alt="Twitter" width="30">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" width="30">
         </a> |
         <a href="https://linkedin.com" target="_blank">
-            <img src="iTurn0image5" alt="LinkedIn" width="30">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" width="30">
         </a> |
         <a href="https://github.com" target="_blank">
-            <img src="iTurn0image8" alt="GitHub" width="30">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="30">
+        </a> |
+        <a href="https://facebook.com" target="_blank">
+            <img src="https://upload.wikimedia.org/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" width="30">
         </a>
     </div>
     """,
     unsafe_allow_html=True
 )
 
-  
 
 
 
