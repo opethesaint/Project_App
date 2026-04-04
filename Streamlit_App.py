@@ -91,7 +91,7 @@ with col3.popover("Show Total Incidents"):
 # with a fixed width of 200 pixels.
 st.sidebar.markdown(
     """
-    <div style="padding:15px; border-radius:10px; width:200px; margin:12px; background:#1e1e1e; color:#ffffff;">
+    <div style="padding:15px; border-radius:10px; width:280px; margin:12px; background:#1e1e1e; color:#ffffff;">
         <h3 style="margin:0;">👤 User Profile</h3>
         <p style="margin:0;">Name: Rotimi</p>
         <p style="margin:0;">Role: Data Analyst</p>
