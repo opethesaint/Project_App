@@ -553,8 +553,7 @@ if st.button("Submit Feedback"):
     """,
     unsafe_allow_html=True
 )
-ow_html=True
-)
+
 
 
 
