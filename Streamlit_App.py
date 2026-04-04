@@ -537,10 +537,20 @@ if st.button("Submit Feedback"):
 st.markdown(
     """
     <div style="text-align:center; margin-top:20px;">
-        <a href="https://twitter.com" target="_blank">🐦 Twitter</a> |
-        <a href="https://linkedin.com" target="_blank">💼 LinkedIn</a> |
-        <a href="https://github.com" target="_blank">💻 GitHub</a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="iTurn0image1" alt="Twitter" width="30">
+        </a> |
+        <a href="https://linkedin.com" target="_blank">
+            <img src="iTurn0image5" alt="LinkedIn" width="30">
+        </a> |
+        <a href="https://github.com" target="_blank">
+            <img src="iTurn0image8" alt="GitHub" width="30">
+        </a>
     </div>
+    """,
+    unsafe_allow_html=True
+)
+
     """,
     unsafe_allow_html=True
 )
