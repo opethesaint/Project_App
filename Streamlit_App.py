@@ -537,16 +537,24 @@ if st.button("Submit Feedback"):
 st.markdown(
     """
     <div style="text-align:center; margin-top:20px;">
-     <a href="https://twitter.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" width="30"> |
-        <a href="https://linkedin.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" width="30">
+        <a href="https://x.com" target="_blank" style="text-decoration:none;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/X_Twitter_icon.svg" 
+                 alt="X" width="30" style="vertical-align:middle;">
         </a> |
-        <a href="https://github.com" target="_blank">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="30">
+        
+        <a href="https://linkedin.com" target="_blank" style="text-decoration:none;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" 
+                 alt="LinkedIn" width="30" style="vertical-align:middle;">
         </a> |
-        <a href="https://facebook.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook" width="30">
+        
+        <a href="https://github.com" target="_blank" style="text-decoration:none;">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+                 alt="GitHub" width="30" style="vertical-align:middle;">
+        </a> |
+        
+        <a href="https://facebook.com" target="_blank" style="text-decoration:none;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" 
+                 alt="Facebook" width="30" style="vertical-align:middle;">
         </a>
     </div>
     """,
