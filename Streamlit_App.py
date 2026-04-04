@@ -27,9 +27,9 @@ with col2:
 
     
 
-st.progress(70)  
-with st.spinner("Loading analysis..."):
-    time.sleep(2)
+#st.progress(70)  
+#with st.spinner("Loading analysis..."):
+#    time.sleep(2)
 
 
 
@@ -102,10 +102,10 @@ st.sidebar.markdown(
 
 
 
-st.sidebar.title("")
-img = Image.open("project_app/images4.jpg")
-img = img.resize((260, 120)) # width=200, height=300   
-st.sidebar.image(img)
+#st.sidebar.title("")
+#img = Image.open("project_app/images4.jpg")
+#img = img.resize((260, 120)) # width=200, height=300   
+#st.sidebar.image(img)
 
 # I used a Sidebar multiselect widget for filtering data by one or more states
 states = st.sidebar.multiselect(
