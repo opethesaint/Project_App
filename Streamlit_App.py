@@ -90,19 +90,7 @@ with col3.popover("Show Total Incidents"):
 # I added a sidebar to display an image (images4.jpg)
 # with a fixed width of 200 pixels.
 st.sidebar.markdown(
-    """
-  div {
-  padding: 15px;
-  border-radius: 10px;
-  margin: 12px;
-  background: #1e1e1e;
-  color: #ffffff;
-  width: 100%;          /* makes it span full width */
-  font-weight: bold;    /* makes text pop */
-  letter-spacing: 2px;  /* adds a wilder vibe */
-  box-shadow: 0 0 15px #ff00ff; /* neon glow for wildness */
-}
-
+    """ <div style="padding:15px; border-radius:10px; margin:12px; width:250px; background:#1e1e1e; color:#ffffff;">  
         <h3 style="margin:0;">👤 User Profile</h3>
         <p style="margin:0;">Name: Rotimi</p>
         <p style="margin:0;">Role: Data Analyst</p>
