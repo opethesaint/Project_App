@@ -534,7 +534,7 @@ if st.button("Submit Feedback"):
 
 
 #####
-st.markdown(
+ st.markdown(
     """
     <div style="text-align:center; margin-top:20px;">
         <a href="https://twitter.com" target="_blank">
@@ -547,11 +547,13 @@ st.markdown(
             <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="30">
         </a> |
         <a href="https://facebook.com" target="_blank">
-            <img src="https://upload.wikimedia.org/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" width="30">
+            <img src="https://upload.wikimedia.org/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="30">
         </a>
     </div>
     """,
     unsafe_allow_html=True
+)
+ow_html=True
 )
 
 
